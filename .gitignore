@@ -1,0 +1,6 @@
+*.step
+*.sch-bak
+*.kicad_sch-bak
+*.kicad_pcb-bak
+*.xml
+3d
