@@ -4,3 +4,5 @@
 *.kicad_pcb-bak
 *.xml
 3d
+fp-info-cache
+_autosave*
