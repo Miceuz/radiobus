@@ -1,4 +1,4 @@
-update=Wed 13 May 2020 11:07:10 PM EEST
+update=Wed 03 Jun 2020 05:33:09 PM EEST
 version=1
 last_client=kicad
 [general]
@@ -31,12 +31,12 @@ ERC_CheckBusToNetConflicts=1
 version=1
 [PcbFrame]
 version=1
-[ModEditFrame]
-version=1
 [SchematicFrame]
 version=1
+[ModEditFrame]
+version=1
 [sheetnames]
-1=8ff46a60-f25c-447d-a96a-b7380bfdabf1:
+1=5abffc08-a441-47da-a4fa-fb09be812000:
 2=00000000-0000-0000-0000-00005d8236a8:battery-protection
 3=00000000-0000-0000-0000-00005d8260b7:voltage-regulation
 4=00000000-0000-0000-0000-00005d825820:RS485-interface
@@ -63,6 +63,7 @@ AllowMicroVias=0
 AllowBlindVias=0
 MinClearance=0
 MinTrackWidth=0.2
+MinViaAnnulus=0.05
 MinViaDiameter=0.4
 MinThroughDrill=0.3
 MinMicroViaDiameter=0.2
@@ -81,16 +82,22 @@ Track_ends_too_close=error
 Parallel_tracks_too_close=error
 Tracks_crossing=error
 Track_too_close_to_board_edge=error
+Via_too_close_to_board_edge=error
+Pad_too_close_to_board_edge=error
 Pads_too_close=error
 Pad_too_close_to_copper_item=error
 Copper_areas_intersect=error
 Copper_areas_too_close=error
 Copper_zone_net_has_no_pads=error
+Via_is_not_connected=warning
+Track_has_unconnected_end=warning
 Hole_too_close_to_pad=error
 Hole_too_close_to_track=error
 Drilled_holes_too_close_together=error
 Track_width_too_small=error
+Track_width_too_large=error
 Via_size_too_small=error
+Via_annulus_too_small=error
 Via_drill_too_small=error
 Pad_drill_too_small=error
 Via_hole_larger_than_diameter=error
@@ -101,17 +108,25 @@ Micro_via_drill_too_small=error
 Buried_via_not_allowed=error
 NetClass_Track_Width_too_small=error
 NetClass_Clearance_too_small=error
+NetClass_via_annulus_too_small=error
 NetClass_Via_Dia_too_small=error
 NetClass_Via_Drill_too_small=error
 NetClass_uVia_Dia_too_small=error
 NetClass_uVia_Drill_too_small=error
 Via_inside_keepout_area=error
+Micro_via_inside_keepout_area=error
+Buried_via_inside_keepout_area=error
 Track_inside_keepout_area=error
 Pad_inside_keepout_area=error
 Footprint_inside_keepout_area=error
+Hole_inside_keepout_area=error
+Text_inside_keepout_area=error
+Graphic_inside_keepout_area=error
 Courtyards_overlap=error
 Footprint_has_no_courtyard_defined=ignore
 Footprint_has_malformed_courtyard=error
+PTH_inside_courtyard=ignore
+NPTH_inside_courtyard=ignore
 Item_on_a_disabled_layer=error
 Board_has_malformed_outline=error
 Missing_footprint=warning
@@ -160,7 +175,7 @@ DimensionPrecision=1
 SolderMaskClearance=0.051
 SolderMaskMinWidth=0.25
 SolderPasteClearance=0
-SolderPasteRatio=-0
+SolderPasteRatio=0
 [pcbnew/Layer.F.Cu]
 Name=F.Cu
 Type=0
