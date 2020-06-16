@@ -1,14 +1,165 @@
-#include <Arduino.h>
+// #include <ArduinoLowPower.h>
+// #include <RTCZero.h>
+#include <SPI.h>
+
+#include <Wire.h>
+
+#include "pins.h"
+#include "radio.h"
+
+// RTCZero rtc;
+
+uint16_t batteryMillivolts = 0;
+
+// payload to send to TTN gateway
+static uint8_t payload[5];
+
+// Schedule TX every this many seconds (might become longer due to duty
+// cycle limitations).
+const unsigned TX_INTERVAL = 10;
+
+void alarmMatch() {}
+
+void goToSleep() {
+  digitalWrite(LED_WAN, LOW);
+  digitalWrite(LED_SENSOR, LOW);
+  digitalWrite(LED_BATT, LOW);
+
+  digitalWrite(RS_485_EN, LOW);
+  // i2cDisable();
+
+  digitalWrite(RE, HIGH);
+  digitalWrite(DE, LOW);
+
+  // rtc.begin();
+  // rtc.setEpoch(0);
+  // rtc.enableAlarm(rtc.MATCH_YYMMDDHHMMSS);
+  // rtc.attachInterrupt(alarmMatch);
+
+  // rtc.setAlarmEpoch(rtc.getEpoch() + TX_INTERVAL);
+  // SysTick->CTRL &= ~SysTick_CTRL_TICKINT_Msk;
+  // rtc.standbyMode();
+  // SysTick->CTRL |= SysTick_CTRL_TICKINT_Msk;
+  delay(TX_INTERVAL * 1000);
+}
+
+void measureBattery() {
+  rs485Enable();
+  delay(30);
+  batteryMillivolts = analogRead(A0) * 3 * 3300 / 1024;
+  Serial.print("Battery voltage: ");
+  Serial.println(batteryMillivolts);
+  rs485Disable();
+}
+
+void readSensors() {
+  digitalWrite(LED_SENSOR, HIGH);
+  measureBattery();
+
+  digitalWrite(LED_SENSOR, LOW);
+}
+
+// Reference:15581
+// On PA24 and PA25 pins, the pull-up and pull-down configuration is not
+// disabled automatically when alternative pin function is enabled. Workaround
+// For PA24 and PA25 pins, the GPIO pull-up and pull-down must be disabled
+// before enabling alternative functions on them.
 
 void setup() {
+  pinMode(PIN_RADIO_SWITCH_PWR, OUTPUT);
+  pinMode(PIN_RADIO_TXCO_PWR, OUTPUT);
+  pinMode(PIN_RADIO_BAND_SEL, OUTPUT);
+  digitalWrite(PIN_RADIO_SWITCH_PWR, HIGH);
+  digitalWrite(PIN_RADIO_TXCO_PWR, HIGH);
+
+  pinMode(DE, OUTPUT); // de
+  pinMode(RE, OUTPUT); //~re
+  pinMode(LED_WAN, OUTPUT);
+  pinMode(LED_SENSOR, OUTPUT);
+  pinMode(LED_BATT, OUTPUT);
+  pinMode(RS_485_EN, OUTPUT);
+  pinMode(I2C_EN, OUTPUT);
+
+  rs485Disable();
+  rs485Sleep();
+
+  i2cEnable();
+
   Serial.begin(9600);
-  pinMode(PIN_LED_WAN, OUTPUT);
+
+  digitalWrite(LED_WAN, HIGH);
+  digitalWrite(LED_SENSOR, HIGH);
+  digitalWrite(LED_BATT, HIGH);
+  delay(500);
+  digitalWrite(LED_WAN, LOW);
+  digitalWrite(LED_SENSOR, LOW);
+  digitalWrite(LED_BATT, LOW);
+
+  // rtc.begin();
+  // rtc.setEpoch(0);
+  // rtc.enableAlarm(rtc.MATCH_YYMMDDHHMMSS);
+  // rtc.attachInterrupt(alarmMatch);
+
+  Serial.println(F("Starting"));
+
+  lora_init();
+
+  Wire.begin();
+  // Wire.setClock(10000);
+
+  measureBattery();
+
+  pinMode(TEST_BUTTON, INPUT_PULLUP);
+  // Standard Arduino attachInterrupt does not make the board to wakeup
+  // Some workarounds are needed as per
+  // http://forum.sodaq.com/t/interrupt-doesnt-wakeup-autonomo/590/24
+  //
+  // // Set the XOSC32K to run in standby
+  // SYSCTRL->XOSC32K.bit.RUNSTDBY = 1;
+
+  // // Configure EIC to use GCLK1 which uses XOSC32K
+  // // This has to be done after the first call to attachInterrupt()
+  // GCLK->CLKCTRL.reg = GCLK_CLKCTRL_ID(GCM_EIC) |
+  //             GCLK_CLKCTRL_GEN_GCLK1 |
+  //             GCLK_CLKCTRL_CLKEN;
+  //
+  // Using LowPower library is a recommended way of doing this:
+  // https://www.arduino.cc/en/Tutorial/LowPowerExternalWakeup
+  // LowPower.attachInterruptWakeup(TEST_BUTTON, onPinChange, FALLING);
+
+  digitalWrite(PIN_RADIO_BAND_SEL, LOW);
+  lora_send(payload, 5);
 }
 
-void loop() {
-  digitalWrite(PIN_LED_WAN, HIGH);
-  delay(300);
-  digitalWrite(PIN_LED_WAN, LOW);
-  delay(300);
-  Serial.println("a\n");
+void on_tx_start() { digitalWrite(LED_WAN, HIGH); }
+
+void setupPayload();
+
+void on_tx_complete() {
+  digitalWrite(LED_WAN, LOW);
+
+  readSensors();
+  lora_adjust_time();
+  setupPayload();
+
+  digitalWrite(PIN_RADIO_BAND_SEL, LOW);
+  lora_send(payload, 5);
 }
+
+void setupPayload() {
+  payload[0] = 0;
+  payload[1] = batteryMillivolts & 0x00FF;
+  payload[2] = (batteryMillivolts >> 8) & 0x00FF;
+  payload[3] = 0;
+  payload[4] = 0;
+}
+
+void loop2() {
+  rs485Enable();
+
+  batteryMillivolts = analogRead(A0) * 3 * 3300 / 1024;
+  Serial.print("Battery voltage: ");
+  Serial.println(batteryMillivolts);
+}
+
+void loop() { os_runloop_once(); }
