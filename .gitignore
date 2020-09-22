@@ -3,6 +3,7 @@
 *.kicad_sch-bak
 *.kicad_pcb-bak
 *.xml
+*.kicad_prl
 3d
 fp-info-cache
 _autosave*
