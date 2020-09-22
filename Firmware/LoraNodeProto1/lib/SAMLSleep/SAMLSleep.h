@@ -24,20 +24,21 @@ public:
 
   // Used for the CPU/APB clocks. Runs at 48MHz.
 #define GENERIC_CLOCK_GENERATOR_MAIN (0u)
+#define GENERIC_CLOCK_GENERATOR_48MHz (4u)
+/* Used by the timers for controlling PWM frequency. Can be up to 48MHz \
+(up to 96MHz with the D51). */
+#define GENERIC_CLOCK_GENERATOR_TIMERS (5u)
+/* 8MHz from internal RC oscillator (D21, D11, and L21 only). Setup by  \
+core but not used. */
+#define GENERIC_CLOCK_GENERATOR_OSC_HS (3u)
+
   // Enter in sleep in sleep_mode and wakeup after seconds
   void sleep(uint32_t seconds, sleep_mode_e sleep_mode) {
     if (0 == started) {
       begin();
     }
 
-    // Errata: 15463
-    // In Standby Sleep mode when the ADC is in free-running mode
-    // (CTRLC.FREERUN=1) and the RUNSTDBY bit is set to 0 (CTRLA.RUNSTDBY=0),
-    // the ADC keeps requesting its generic clock.
-    // Stop the free-running mode (CTRLC.FREERUN=0) before entering Standby
-    // Sleep mode.
-
-    ADC->CTRLC.bit.FREERUN = 0;
+    sleepAdc();
 
     // Reference:14827, MATH100-7
     // When TRNG is disabled, some internal logic could continue to operate
@@ -47,93 +48,83 @@ public:
     TRNG->CTRLA.reg = 0;
     TRNG->CTRLA.reg = 0;
 
+    // Disable USB and set USB pins as output LOW
+    USB->DEVICE.CTRLA.bit.ENABLE = 0;
+    // PORT->Group[0].DIRSET.reg = (uint32_t)(1 << PIN_PA24G_USB_DM);
+    // PORT->Group[0].OUTCLR.reg = (uint32_t)(1 << PIN_PA24G_USB_DM);
+    // PORT->Group[0].DIRSET.reg = (uint32_t)(1 << PIN_PA25G_USB_DP);
+    // PORT->Group[0].OUTCLR.reg = (uint32_t)(1 << PIN_PA25G_USB_DP);
+
+    // Set SWDIO to output to save somewhat 38uA
+    PORT->Group[0].DIRSET.reg = 1 << 31;
+    PORT->Group[0].OUTCLR.reg = 1 << 31;
+    // Set SWDCLK to output and high as we have pullup
+    // PORT->Group[0].DIRSET.reg = 1 << 30;
+    // PORT->Group[0].OUTSET.reg = 1 << 30;
+
     // Errata: 14539
     // If the PM.STDBYCFG.VREGSMOD field is set to 2 (low-power configuration),
     // the oscillator source driving the GCLK_MAIN clock will still be running
     // in Standby mode causing extra consumption.
     // Before entering Standby mode, switch the GCLK_MAIN to the OSCULP32K
     // clock. After wake-up, switch back to the GCLK_MAIN clock.
-
-    // MCLK->APBDMASK.bit.AC_ = 0;
-    // MCLK->APBDMASK.bit.ADC_ = 0;
-    // MCLK->APBDMASK.bit.CCL_ = 0;
-    // MCLK->APBDMASK.bit.EVSYS_ = 0;
-    // MCLK->APBDMASK.bit.PTC_ = 0;
-    // MCLK->APBDMASK.bit.SERCOM5_ = 0;
-    // MCLK->APBDMASK.bit.TC4_ = 0;
-
-    // MCLK->AHBMASK.bit.DMAC_ = 0;
-    // MCLK->AHBMASK.bit.DSU_ = 0;
-    // MCLK->AHBMASK.bit.PAC_ = 0;
-    // MCLK->APBAMASK.bit.PORT_ = 0;
-    // MCLK->APBAMASK.bit.RSTC_ = 0;
-    // MCLK->APBAMASK.bit.SUPC_ = 0;
-    // MCLK->APBCMASK.bit.AES_ = 0;
-    // MCLK->APBCMASK.bit.DAC_ = 0;
-    // MCLK->APBCMASK.bit.SERCOM0_ = 0;
-    // MCLK->APBCMASK.bit.SERCOM1_ = 0;
-    // MCLK->APBCMASK.bit.SERCOM2_ = 0;
-    // MCLK->APBCMASK.bit.SERCOM3_ = 0;
-    // MCLK->APBCMASK.bit.SERCOM4_ = 0;
-    // MCLK->APBCMASK.bit.TC0_ = 0;
-    // MCLK->APBCMASK.bit.TC1_ = 0;
-    // MCLK->APBCMASK.bit.TC2_ = 0;
-    // MCLK->APBCMASK.bit.TC3_ = 0;
-    // MCLK->APBCMASK.bit.TCC0_ = 0;
-    // MCLK->APBCMASK.bit.TCC1_ = 0;
-    // MCLK->APBCMASK.bit.TCC2_ = 0;
-    // MCLK->APBCMASK.bit.TRNG_ = 0;
-
-    // MCLK->APBEMASK.bit.PAC_ = 0;
-
-    // for (int i = 4; i < 35; i++) {
-    //   if (0 != GCLK->PCHCTRL[i].reg) {
-    //     GCLK->PCHCTRL[i].reg = 0;
-    //     while ((GCLK->PCHCTRL[i].reg & GCLK_PCHCTRL_CHEN) !=
-    //     GCLK_PCHCTRL_CHEN)
-    //       ;
-    //   }
-    // }
-
-    // USB pins set to pullups
-    PORT->Group[0].OUTSET.reg = (uint32_t)(1 << PIN_PA24G_USB_DM);
-    PORT->Group[0].PINCFG[PIN_PA24G_USB_DM].reg =
-        (PORT_PINCFG_PULLEN | PORT_PINCFG_INEN);
-    PORT->Group[0].OUTSET.reg = (uint32_t)(1 << PIN_PA25G_USB_DP);
-    PORT->Group[0].PINCFG[PIN_PA25G_USB_DP].reg =
-        (PORT_PINCFG_PULLEN | PORT_PINCFG_INEN);
-
+    // switch to OSCULP32K
     GCLK->GENCTRL[GENERIC_CLOCK_GENERATOR_MAIN].reg =
-        (GCLK_GENCTRL_DIV(2) | GCLK_GENCTRL_SRC_OSCULP32K | GCLK_GENCTRL_IDC |
+        (GCLK_GENCTRL_DIV(1) | GCLK_GENCTRL_SRC_OSCULP32K | GCLK_GENCTRL_IDC |
          GCLK_GENCTRL_GENEN);
+
     syncClocks();
 
+    // disable external oscillator
+    // OSC32KCTRL->XOSC32K.bit.ENABLE = 0;
+
+    // switch to performance level 0
     PM->INTFLAG.bit.PLRDY = 1;
     PM->PLCFG.bit.PLSEL = PM_PLCFG_PLSEL_PL0_Val;
-    while (PM->INTFLAG.bit.PLRDY)
+    while (!PM->INTFLAG.bit.PLRDY)
       ;
     PM->INTFLAG.bit.PLRDY = 1;
 
+    PM->STDBYCFG.bit.PDCFG = PM_STDBYCFG_PDCFG_DEFAULT_Val;
+    PM->STDBYCFG.bit.DPGPD0 = 1;
+    PM->STDBYCFG.bit.DPGPD1 = 1;
+    PM->STDBYCFG.bit.LINKPD = PM_STDBYCFG_LINKPD_PD01_Val;
     PM->STDBYCFG.bit.VREGSMOD = PM_STDBYCFG_VREGSMOD_LP_Val;
-    PM->STDBYCFG.bit.BBIASLP = PM_STDBYCFG_BBIASLP(2);
-    PM->STDBYCFG.bit.BBIASHS = PM_STDBYCFG_BBIASHS(2);
-    PM->STDBYCFG.bit.BBIASPP = PM_STDBYCFG_BBIASPP(2);
+    PM->STDBYCFG.bit.BBIASLP = PM_STDBYCFG_BBIASLP(0);
+    PM->STDBYCFG.bit.BBIASHS = PM_STDBYCFG_BBIASHS(0);
+    PM->STDBYCFG.bit.BBIASPP = PM_STDBYCFG_BBIASPP(0);
+
+    // Enable Low Power Efficiency, saves ~200nA
+    SUPC->VREG.bit.LPEFF = 1;
 
     rtc.interruptAfter(seconds);
     setMode(sleep_mode);
     sleep();
 
+    SUPC->VREG.bit.LPEFF = 0;
+
+    // switch to performance level 2
     PM->INTFLAG.bit.PLRDY = 1;
-    PM->PLCFG.bit.PLSEL =
-        PM_PLCFG_PLSEL_PL2_Val; // must set to highest performance level
-    while (PM->INTFLAG.bit.PLRDY)
+    PM->PLCFG.bit.PLSEL = PM_PLCFG_PLSEL_PL2_Val;
+    while (!PM->INTFLAG.bit.PLRDY)
       ;
     PM->INTFLAG.bit.PLRDY = 1;
 
+    // enable external oscillator
+    // OSC32KCTRL->XOSC32K.bit.ENABLE = 1;
+
+    // switch to clock generated by GCLK_GENCTRL_SRC_DPLL96M
     GCLK->GENCTRL[GENERIC_CLOCK_GENERATOR_MAIN].reg =
         (GCLK_GENCTRL_DIV(2) | GCLK_GENCTRL_SRC_DPLL96M | GCLK_GENCTRL_IDC |
          GCLK_GENCTRL_GENEN);
     syncClocks();
+
+    GCLK->PCHCTRL[GCM_ADC].bit.CHEN = 0;
+    while (GCLK->PCHCTRL[GCM_ADC].bit.CHEN == 1)
+      ;
+    ADC->CTRLA.bit.ENABLE = 0;
+    while (ADC->SYNCBUSY.bit.ENABLE)
+      ;
   };
 
   // void set_backup(int n_values, ...) {
@@ -165,6 +156,24 @@ public:
 
 private:
   uint32_t started = 0;
+
+  void sleepAdc() {
+    GCLK->PCHCTRL[GCM_ADC].bit.CHEN = 0;
+    while (GCLK->PCHCTRL[GCM_ADC].bit.CHEN == 1)
+      ;
+    ADC->CTRLA.bit.ENABLE = 0;
+
+    // Errata: 15463
+    // In Standby Sleep mode when the ADC is in free-running mode
+    // (CTRLC.FREERUN=1) and the RUNSTDBY bit is set to 0 (CTRLA.RUNSTDBY=0),
+    // the ADC keeps requesting its generic clock.
+    // Stop the free-running mode (CTRLC.FREERUN=0) before entering Standby
+    // Sleep mode.
+
+    ADC->CTRLC.bit.FREERUN = 0;
+    // while (ADC->SYNCBUSY.bit.CTRLC)
+    //   ;
+  }
 
   static inline void setMode(const enum sleep_mode_e sleep_mode) {
     PM->SLEEPCFG.reg = static_cast<uint8_t>(sleep_mode);
