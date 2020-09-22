@@ -1,11 +1,11 @@
-(kicad_sch (version 20200512) (host eeschema "5.99.0-unknown-eae0c14~88~ubuntu18.04.1")
+(kicad_sch (version 20200828) (generator eeschema)
 
-  (page 1 5)
+  (page 3 5)
 
   (paper "A4")
 
   (lib_symbols
-    (symbol "Device:C" (pin_numbers hide) (pin_names (offset 0.254))
+    (symbol "Device:C" (pin_numbers hide) (pin_names (offset 0.254)) (in_bom yes) (on_board yes)
       (property "Reference" "C" (id 0) (at 0.635 2.54 0)
         (effects (font (size 1.27 1.27)) (justify left))
       )
@@ -29,11 +29,17 @@
       )
       (symbol "C_0_1"
         (polyline
-          (pts (xy -2.032 -0.762) (xy 2.032 -0.762))
+          (pts
+            (xy -2.032 -0.762)
+            (xy 2.032 -0.762)
+          )
           (stroke (width 0.508)) (fill (type none))
         )
         (polyline
-          (pts (xy -2.032 0.762) (xy 2.032 0.762))
+          (pts
+            (xy -2.032 0.762)
+            (xy 2.032 0.762)
+          )
           (stroke (width 0.508)) (fill (type none))
         )
       )
@@ -48,7 +54,7 @@
         )
       )
     )
-    (symbol "miceuz:NCP718"
+    (symbol "miceuz:NCP718" (in_bom yes) (on_board yes)
       (property "Reference" "U" (id 0) (at -5.08 6.35 0)
         (effects (font (size 1.27 1.27)))
       )
@@ -91,10 +97,10 @@
     )
   )
 
-  (junction (at 93.98 39.37))
-  (junction (at 93.98 54.61))
-  (junction (at 101.6 39.37))
-  (junction (at 119.38 54.61))
+  (junction (at 93.98 39.37) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 93.98 54.61) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 101.6 39.37) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 119.38 54.61) (diameter 1.016) (color 0 0 0 0))
 
   (wire (pts (xy 82.55 39.37) (xy 93.98 39.37))
     (stroke (width 0) (type solid) (color 0 0 0 0))
@@ -138,6 +144,7 @@
   )
 
   (symbol (lib_id "Device:C") (at 82.55 43.18 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d00435e")
     (property "Reference" "C16" (id 0) (at 79.629 42.0116 0)
       (effects (font (size 1.27 1.27)) (justify right))
@@ -160,6 +167,7 @@
   )
 
   (symbol (lib_id "Device:C") (at 93.98 43.18 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005bd77a45")
     (property "Reference" "C7" (id 0) (at 91.059 42.0116 0)
       (effects (font (size 1.27 1.27)) (justify right))
@@ -182,6 +190,7 @@
   )
 
   (symbol (lib_id "Device:C") (at 135.89 45.72 0) (mirror y) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d86d7bc")
     (property "Reference" "C11" (id 0) (at 138.811 44.5516 0)
       (effects (font (size 1.27 1.27)) (justify right))
@@ -204,6 +213,7 @@
   )
 
   (symbol (lib_id "miceuz:NCP718") (at 119.38 43.18 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d8f1c6a")
     (property "Reference" "U4" (id 0) (at 118.745 33.655 0))
     (property "Value" "NCP718" (id 1) (at 118.745 35.9664 0))

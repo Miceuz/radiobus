@@ -1,11 +1,11 @@
-(kicad_sch (version 20200512) (host eeschema "5.99.0-unknown-eae0c14~88~ubuntu18.04.1")
+(kicad_sch (version 20200828) (generator eeschema)
 
   (page 2 5)
 
   (paper "A4")
 
   (lib_symbols
-    (symbol "Device:D" (pin_numbers hide) (pin_names hide)
+    (symbol "Device:D" (pin_numbers hide) (pin_names hide) (in_bom yes) (on_board yes)
       (property "Reference" "D" (id 0) (at 0 2.54 0)
         (effects (font (size 1.27 1.27)))
       )
@@ -29,15 +29,26 @@
       )
       (symbol "D_0_1"
         (polyline
-          (pts (xy -1.27 1.27) (xy -1.27 -1.27))
+          (pts
+            (xy -1.27 1.27)
+            (xy -1.27 -1.27)
+          )
           (stroke (width 0.254)) (fill (type none))
         )
         (polyline
-          (pts (xy 1.27 0) (xy -1.27 0))
+          (pts
+            (xy 1.27 0)
+            (xy -1.27 0)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 1.27 1.27) (xy 1.27 -1.27) (xy -1.27 0) (xy 1.27 1.27))
+          (pts
+            (xy 1.27 1.27)
+            (xy 1.27 -1.27)
+            (xy -1.27 0)
+            (xy 1.27 1.27)
+          )
           (stroke (width 0.254)) (fill (type none))
         )
       )
@@ -52,7 +63,7 @@
         )
       )
     )
-    (symbol "Device:D_TVS" (pin_numbers hide) (pin_names hide)
+    (symbol "Device:D_TVS" (pin_numbers hide) (pin_names hide) (in_bom yes) (on_board yes)
       (property "Reference" "D" (id 0) (at 0 2.54 0)
         (effects (font (size 1.27 1.27)))
       )
@@ -76,16 +87,28 @@
       )
       (symbol "D_TVS_0_1"
         (polyline
-          (pts (xy 1.27 0) (xy -1.27 0))
+          (pts
+            (xy 1.27 0)
+            (xy -1.27 0)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 0.508 1.27) (xy 0 1.27) (xy 0 -1.27) (xy -0.508 -1.27))
+          (pts
+            (xy 0.508 1.27)
+            (xy 0 1.27)
+            (xy 0 -1.27)
+            (xy -0.508 -1.27)
+          )
           (stroke (width 0.254)) (fill (type none))
         )
         (polyline
-          (pts (xy -2.54 1.27) (xy -2.54 -1.27) (xy 2.54 1.27) (xy 2.54 -1.27)
-               (xy -2.54 1.27)
+          (pts
+            (xy -2.54 1.27)
+            (xy -2.54 -1.27)
+            (xy 2.54 1.27)
+            (xy 2.54 -1.27)
+            (xy -2.54 1.27)
           )
           (stroke (width 0.254)) (fill (type none))
         )
@@ -101,7 +124,7 @@
         )
       )
     )
-    (symbol "Device:D_Zener" (pin_numbers hide) (pin_names hide)
+    (symbol "Device:D_Zener" (pin_numbers hide) (pin_names hide) (in_bom yes) (on_board yes)
       (property "Reference" "D" (id 0) (at 0 2.54 0)
         (effects (font (size 1.27 1.27)))
       )
@@ -125,15 +148,27 @@
       )
       (symbol "D_Zener_0_1"
         (polyline
-          (pts (xy 1.27 0) (xy -1.27 0))
+          (pts
+            (xy 1.27 0)
+            (xy -1.27 0)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy -1.27 -1.27) (xy -1.27 1.27) (xy -0.762 1.27))
+          (pts
+            (xy -1.27 -1.27)
+            (xy -1.27 1.27)
+            (xy -0.762 1.27)
+          )
           (stroke (width 0.254)) (fill (type none))
         )
         (polyline
-          (pts (xy 1.27 -1.27) (xy 1.27 1.27) (xy -1.27 0) (xy 1.27 -1.27))
+          (pts
+            (xy 1.27 -1.27)
+            (xy 1.27 1.27)
+            (xy -1.27 0)
+            (xy 1.27 -1.27)
+          )
           (stroke (width 0.254)) (fill (type none))
         )
       )
@@ -148,7 +183,7 @@
         )
       )
     )
-    (symbol "Device:Q_PMOS_GSD" (pin_names (offset 0) hide)
+    (symbol "Device:Q_PMOS_GSD" (pin_names (offset 0) hide) (in_bom yes) (on_board yes)
       (property "Reference" "Q" (id 0) (at 5.08 1.27 0)
         (effects (font (size 1.27 1.27)) (justify left))
       )
@@ -172,47 +207,89 @@
         (circle (center 2.54 -1.778) (radius 0.254) (stroke (width 0)) (fill (type outline)))
         (circle (center 2.54 1.778) (radius 0.254) (stroke (width 0)) (fill (type outline)))
         (polyline
-          (pts (xy 0.254 0) (xy -2.54 0))
+          (pts
+            (xy 0.254 0)
+            (xy -2.54 0)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 0.254 1.905) (xy 0.254 -1.905))
+          (pts
+            (xy 0.254 1.905)
+            (xy 0.254 -1.905)
+          )
           (stroke (width 0.254)) (fill (type none))
         )
         (polyline
-          (pts (xy 0.762 -1.27) (xy 0.762 -2.286))
+          (pts
+            (xy 0.762 -1.27)
+            (xy 0.762 -2.286)
+          )
           (stroke (width 0.254)) (fill (type none))
         )
         (polyline
-          (pts (xy 0.762 0.508) (xy 0.762 -0.508))
+          (pts
+            (xy 0.762 0.508)
+            (xy 0.762 -0.508)
+          )
           (stroke (width 0.254)) (fill (type none))
         )
         (polyline
-          (pts (xy 0.762 2.286) (xy 0.762 1.27))
+          (pts
+            (xy 0.762 2.286)
+            (xy 0.762 1.27)
+          )
           (stroke (width 0.254)) (fill (type none))
         )
         (polyline
-          (pts (xy 2.54 2.54) (xy 2.54 1.778))
+          (pts
+            (xy 2.54 2.54)
+            (xy 2.54 1.778)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 2.54 -2.54) (xy 2.54 0) (xy 0.762 0))
+          (pts
+            (xy 2.54 -2.54)
+            (xy 2.54 0)
+            (xy 0.762 0)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 0.762 1.778) (xy 3.302 1.778) (xy 3.302 -1.778) (xy 0.762 -1.778))
+          (pts
+            (xy 0.762 1.778)
+            (xy 3.302 1.778)
+            (xy 3.302 -1.778)
+            (xy 0.762 -1.778)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 2.286 0) (xy 1.27 0.381) (xy 1.27 -0.381) (xy 2.286 0))
+          (pts
+            (xy 2.286 0)
+            (xy 1.27 0.381)
+            (xy 1.27 -0.381)
+            (xy 2.286 0)
+          )
           (stroke (width 0)) (fill (type outline))
         )
         (polyline
-          (pts (xy 2.794 -0.508) (xy 2.921 -0.381) (xy 3.683 -0.381) (xy 3.81 -0.254))
+          (pts
+            (xy 2.794 -0.508)
+            (xy 2.921 -0.381)
+            (xy 3.683 -0.381)
+            (xy 3.81 -0.254)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 3.302 -0.381) (xy 2.921 0.254) (xy 3.683 0.254) (xy 3.302 -0.381))
+          (pts
+            (xy 3.302 -0.381)
+            (xy 2.921 0.254)
+            (xy 3.683 0.254)
+            (xy 3.302 -0.381)
+          )
           (stroke (width 0)) (fill (type none))
         )
       )
@@ -231,7 +308,7 @@
         )
       )
     )
-    (symbol "Device:R" (pin_numbers hide) (pin_names (offset 0))
+    (symbol "Device:R" (pin_numbers hide) (pin_names (offset 0)) (in_bom yes) (on_board yes)
       (property "Reference" "R" (id 0) (at 2.032 0 90)
         (effects (font (size 1.27 1.27)))
       )
@@ -269,7 +346,7 @@
         )
       )
     )
-    (symbol "Device:Thermistor_PTC" (pin_numbers hide) (pin_names (offset 0))
+    (symbol "Device:Thermistor_PTC" (pin_numbers hide) (pin_names (offset 0)) (in_bom yes) (on_board yes)
       (property "Reference" "TH" (id 0) (at -4.064 0 90)
         (effects (font (size 1.27 1.27)))
       )
@@ -317,22 +394,40 @@
           (stroke (width 0.254)) (fill (type none))
         )
         (polyline
-          (pts (xy -2.54 2.159) (xy -2.54 2.794))
+          (pts
+            (xy -2.54 2.159)
+            (xy -2.54 2.794)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy -1.778 2.54) (xy -1.778 1.524) (xy 1.778 -1.524) (xy 1.778 -2.54))
+          (pts
+            (xy -1.778 2.54)
+            (xy -1.778 1.524)
+            (xy 1.778 -1.524)
+            (xy 1.778 -2.54)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy -2.54 -3.683) (xy -2.54 -1.397) (xy -2.794 -2.159) (xy -2.286 -2.159)
-               (xy -2.54 -1.397) (xy -2.54 -1.651)
+          (pts
+            (xy -2.54 -3.683)
+            (xy -2.54 -1.397)
+            (xy -2.794 -2.159)
+            (xy -2.286 -2.159)
+            (xy -2.54 -1.397)
+            (xy -2.54 -1.651)
           )
           (stroke (width 0)) (fill (type outline))
         )
         (polyline
-          (pts (xy -1.778 -3.683) (xy -1.778 -1.397) (xy -2.032 -2.159) (xy -1.524 -2.159)
-               (xy -1.778 -1.397) (xy -1.778 -1.651)
+          (pts
+            (xy -1.778 -3.683)
+            (xy -1.778 -1.397)
+            (xy -2.032 -2.159)
+            (xy -1.524 -2.159)
+            (xy -1.778 -1.397)
+            (xy -1.778 -1.651)
           )
           (stroke (width 0)) (fill (type outline))
         )
@@ -350,13 +445,13 @@
     )
   )
 
-  (junction (at 55.245 45.72))
-  (junction (at 68.58 53.34))
-  (junction (at 68.58 72.39))
-  (junction (at 74.93 45.72))
-  (junction (at 74.93 53.34))
-  (junction (at 82.55 45.72))
-  (junction (at 82.55 53.34))
+  (junction (at 55.245 45.72) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 68.58 53.34) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 68.58 72.39) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 74.93 45.72) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 74.93 53.34) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 82.55 45.72) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 82.55 53.34) (diameter 1.016) (color 0 0 0 0))
 
   (wire (pts (xy 45.085 45.72) (xy 55.245 45.72))
     (stroke (width 0) (type solid) (color 0 0 0 0))
@@ -418,6 +513,7 @@
   )
 
   (symbol (lib_id "Device:R") (at 82.55 49.53 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005dc1d764")
     (property "Reference" "R21" (id 0) (at 84.328 48.3616 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -434,6 +530,7 @@
   )
 
   (symbol (lib_id "Device:R") (at 82.55 57.15 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005dc22cf0")
     (property "Reference" "R24" (id 0) (at 84.328 55.9816 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -450,11 +547,12 @@
   )
 
   (symbol (lib_id "Device:D_TVS") (at 55.245 49.53 270) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005dc183a7")
     (property "Reference" "D5" (id 0) (at 57.2516 49.53 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "D_TVS" (id 1) (at 57.2516 50.673 90)
+    (property "Value" "SMF11A" (id 1) (at 57.2516 50.673 90)
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
     (property "Footprint" "Diode_SMD:D_SOD-123F" (id 2) (at 55.245 49.53 0)
@@ -472,6 +570,7 @@
   )
 
   (symbol (lib_id "Device:D_Zener") (at 74.93 49.53 270) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005e21fe6a")
     (property "Reference" "D2" (id 0) (at 76.962 48.387 90)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -494,6 +593,7 @@
   )
 
   (symbol (lib_id "Device:D") (at 92.075 72.39 180) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d86d14c")
     (property "Reference" "D3" (id 0) (at 92.075 66.9036 0))
     (property "Value" "1N4148" (id 1) (at 92.075 69.215 0))
@@ -512,6 +612,7 @@
   )
 
   (symbol (lib_id "Device:Thermistor_PTC") (at 41.275 45.72 90) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005dc19068")
     (property "Reference" "TH1" (id 0) (at 41.275 42.0624 90))
     (property "Value" "Thermistor_PTC" (id 1) (at 41.275 42.0624 90)
@@ -532,9 +633,10 @@
   )
 
   (symbol (lib_id "Device:Q_PMOS_GSD") (at 68.58 48.26 90) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005dc1add3")
     (property "Reference" "Q3" (id 0) (at 68.58 43.18 90))
-    (property "Value" "Q_PMOS_GSD" (id 1) (at 68.58 42.2402 90)
+    (property "Value" "NX2301P" (id 1) (at 68.58 42.2402 90)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Footprint" "Package_TO_SOT_SMD:SOT-23" (id 2) (at 66.04 43.18 0)
@@ -558,9 +660,10 @@
   )
 
   (symbol (lib_id "Device:Q_PMOS_GSD") (at 90.805 48.26 270) (mirror x) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005dc24989")
     (property "Reference" "Q4" (id 0) (at 90.805 43.18 90))
-    (property "Value" "Q_PMOS_GSD" (id 1) (at 90.805 42.2402 90)
+    (property "Value" "NX2301P" (id 1) (at 90.805 42.2402 90)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Footprint" "Package_TO_SOT_SMD:SOT-23" (id 2) (at 93.345 43.18 0)

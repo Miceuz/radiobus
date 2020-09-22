@@ -1,11 +1,11 @@
-(kicad_sch (version 20200512) (host eeschema "5.99.0-unknown-eae0c14~88~ubuntu18.04.1")
+(kicad_sch (version 20200828) (generator eeschema)
 
   (page 5 5)
 
   (paper "A4")
 
   (lib_symbols
-    (symbol "Device:D_TVS_x2_AAC" (pin_names hide)
+    (symbol "Device:D_TVS_x2_AAC" (pin_names hide) (in_bom yes) (on_board yes)
       (property "Reference" "D" (id 0) (at 0 4.445 0)
         (effects (font (size 1.27 1.27)))
       )
@@ -27,33 +27,57 @@
       (symbol "D_TVS_x2_AAC_0_1"
         (circle (center 0 0) (radius 0.254) (stroke (width 0)) (fill (type outline)))
         (polyline
-          (pts (xy -6.35 0) (xy 6.35 0))
+          (pts
+            (xy -6.35 0)
+            (xy 6.35 0)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy -3.302 1.27) (xy -3.81 1.27) (xy -3.81 -1.27) (xy -4.318 -1.27))
-          (stroke (width 0.254)) (fill (type none))
-        )
-        (polyline
-          (pts (xy 4.318 1.27) (xy 3.81 1.27) (xy 3.81 -1.27) (xy 3.302 -1.27))
-          (stroke (width 0.254)) (fill (type none))
-        )
-        (polyline
-          (pts (xy -6.35 1.27) (xy -1.27 -1.27) (xy -1.27 1.27) (xy -6.35 -1.27)
-               (xy -6.35 1.27)
+          (pts
+            (xy -3.302 1.27)
+            (xy -3.81 1.27)
+            (xy -3.81 -1.27)
+            (xy -4.318 -1.27)
           )
           (stroke (width 0.254)) (fill (type none))
         )
         (polyline
-          (pts (xy 6.35 1.27) (xy 1.27 -1.27) (xy 1.27 1.27) (xy 6.35 -1.27)
-               (xy 6.35 1.27)
+          (pts
+            (xy 4.318 1.27)
+            (xy 3.81 1.27)
+            (xy 3.81 -1.27)
+            (xy 3.302 -1.27)
+          )
+          (stroke (width 0.254)) (fill (type none))
+        )
+        (polyline
+          (pts
+            (xy -6.35 1.27)
+            (xy -1.27 -1.27)
+            (xy -1.27 1.27)
+            (xy -6.35 -1.27)
+            (xy -6.35 1.27)
+          )
+          (stroke (width 0.254)) (fill (type none))
+        )
+        (polyline
+          (pts
+            (xy 6.35 1.27)
+            (xy 1.27 -1.27)
+            (xy 1.27 1.27)
+            (xy 6.35 -1.27)
+            (xy 6.35 1.27)
           )
           (stroke (width 0.254)) (fill (type none))
         )
       )
       (symbol "D_TVS_x2_AAC_0_0"
         (polyline
-          (pts (xy 0 -1.27) (xy 0 0))
+          (pts
+            (xy 0 -1.27)
+            (xy 0 0)
+          )
           (stroke (width 0)) (fill (type none))
         )
       )
@@ -72,7 +96,7 @@
         )
       )
     )
-    (symbol "Device:Q_PMOS_GSD" (pin_names (offset 0) hide)
+    (symbol "Device:Q_PMOS_GSD" (pin_names (offset 0) hide) (in_bom yes) (on_board yes)
       (property "Reference" "Q" (id 0) (at 5.08 1.27 0)
         (effects (font (size 1.27 1.27)) (justify left))
       )
@@ -96,47 +120,89 @@
         (circle (center 2.54 -1.778) (radius 0.254) (stroke (width 0)) (fill (type outline)))
         (circle (center 2.54 1.778) (radius 0.254) (stroke (width 0)) (fill (type outline)))
         (polyline
-          (pts (xy 0.254 0) (xy -2.54 0))
+          (pts
+            (xy 0.254 0)
+            (xy -2.54 0)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 0.254 1.905) (xy 0.254 -1.905))
+          (pts
+            (xy 0.254 1.905)
+            (xy 0.254 -1.905)
+          )
           (stroke (width 0.254)) (fill (type none))
         )
         (polyline
-          (pts (xy 0.762 -1.27) (xy 0.762 -2.286))
+          (pts
+            (xy 0.762 -1.27)
+            (xy 0.762 -2.286)
+          )
           (stroke (width 0.254)) (fill (type none))
         )
         (polyline
-          (pts (xy 0.762 0.508) (xy 0.762 -0.508))
+          (pts
+            (xy 0.762 0.508)
+            (xy 0.762 -0.508)
+          )
           (stroke (width 0.254)) (fill (type none))
         )
         (polyline
-          (pts (xy 0.762 2.286) (xy 0.762 1.27))
+          (pts
+            (xy 0.762 2.286)
+            (xy 0.762 1.27)
+          )
           (stroke (width 0.254)) (fill (type none))
         )
         (polyline
-          (pts (xy 2.54 2.54) (xy 2.54 1.778))
+          (pts
+            (xy 2.54 2.54)
+            (xy 2.54 1.778)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 2.54 -2.54) (xy 2.54 0) (xy 0.762 0))
+          (pts
+            (xy 2.54 -2.54)
+            (xy 2.54 0)
+            (xy 0.762 0)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 0.762 1.778) (xy 3.302 1.778) (xy 3.302 -1.778) (xy 0.762 -1.778))
+          (pts
+            (xy 0.762 1.778)
+            (xy 3.302 1.778)
+            (xy 3.302 -1.778)
+            (xy 0.762 -1.778)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 2.286 0) (xy 1.27 0.381) (xy 1.27 -0.381) (xy 2.286 0))
+          (pts
+            (xy 2.286 0)
+            (xy 1.27 0.381)
+            (xy 1.27 -0.381)
+            (xy 2.286 0)
+          )
           (stroke (width 0)) (fill (type outline))
         )
         (polyline
-          (pts (xy 2.794 -0.508) (xy 2.921 -0.381) (xy 3.683 -0.381) (xy 3.81 -0.254))
+          (pts
+            (xy 2.794 -0.508)
+            (xy 2.921 -0.381)
+            (xy 3.683 -0.381)
+            (xy 3.81 -0.254)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 3.302 -0.381) (xy 2.921 0.254) (xy 3.683 0.254) (xy 3.302 -0.381))
+          (pts
+            (xy 3.302 -0.381)
+            (xy 2.921 0.254)
+            (xy 3.683 0.254)
+            (xy 3.302 -0.381)
+          )
           (stroke (width 0)) (fill (type none))
         )
       )
@@ -155,7 +221,7 @@
         )
       )
     )
-    (symbol "Device:R" (pin_numbers hide) (pin_names (offset 0))
+    (symbol "Device:R" (pin_numbers hide) (pin_names (offset 0)) (in_bom yes) (on_board yes)
       (property "Reference" "R" (id 0) (at 2.032 0 90)
         (effects (font (size 1.27 1.27)))
       )
@@ -193,7 +259,7 @@
         )
       )
     )
-    (symbol "power:GND" (power) (pin_names (offset 0))
+    (symbol "power:GND" (power) (pin_names (offset 0)) (in_bom yes) (on_board yes)
       (property "Reference" "#PWR" (id 0) (at 0 -6.35 0)
         (effects (font (size 1.27 1.27)) hide)
       )
@@ -214,8 +280,13 @@
       )
       (symbol "GND_0_1"
         (polyline
-          (pts (xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54)
-               (xy -1.27 -1.27) (xy 0 -1.27)
+          (pts
+            (xy 0 0)
+            (xy 0 -1.27)
+            (xy 1.27 -1.27)
+            (xy 0 -2.54)
+            (xy -1.27 -1.27)
+            (xy 0 -1.27)
           )
           (stroke (width 0)) (fill (type none))
         )
@@ -229,11 +300,11 @@
     )
   )
 
-  (junction (at 111.76 55.88))
-  (junction (at 130.175 55.88))
-  (junction (at 130.175 73.025))
-  (junction (at 137.16 55.88))
-  (junction (at 147.955 69.85))
+  (junction (at 111.76 55.88) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 130.175 55.88) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 130.175 73.025) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 137.16 55.88) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 147.955 69.85) (diameter 1.016) (color 0 0 0 0))
 
   (wire (pts (xy 105.41 55.88) (xy 111.76 55.88))
     (stroke (width 0) (type solid) (color 0 0 0 0))
@@ -298,6 +369,7 @@
   )
 
   (symbol (lib_id "power:GND") (at 139.065 86.995 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005daf890b")
     (property "Reference" "#PWR0137" (id 0) (at 139.065 93.345 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -312,6 +384,7 @@
   )
 
   (symbol (lib_id "Device:R") (at 111.76 59.69 0) (mirror x) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d8521b9")
     (property "Reference" "R4" (id 0) (at 110.0074 58.5216 0)
       (effects (font (size 1.27 1.27)) (justify right))
@@ -328,6 +401,7 @@
   )
 
   (symbol (lib_id "Device:R") (at 115.57 71.755 270) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d853f04")
     (property "Reference" "R5" (id 0) (at 115.57 66.4972 90))
     (property "Value" "150" (id 1) (at 115.57 68.8086 90))
@@ -340,6 +414,7 @@
   )
 
   (symbol (lib_id "Device:R") (at 130.175 59.69 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d84f22a")
     (property "Reference" "R6" (id 0) (at 131.953 58.5216 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -356,6 +431,7 @@
   )
 
   (symbol (lib_id "Device:R") (at 137.16 59.69 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d84eabd")
     (property "Reference" "R7" (id 0) (at 138.938 58.5216 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -372,9 +448,10 @@
   )
 
   (symbol (lib_id "Device:D_TVS_x2_AAC") (at 139.065 83.185 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005cf95011")
     (property "Reference" "D9" (id 0) (at 139.065 80.01 0))
-    (property "Value" "D_TVS_x2_AAC" (id 1) (at 139.065 80.01 0)
+    (property "Value" "5V6" (id 1) (at 139.065 80.01 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Footprint" "miceuz-lib:SC89" (id 2) (at 135.255 83.185 0)
@@ -392,9 +469,10 @@
   )
 
   (symbol (lib_id "Device:Q_PMOS_GSD") (at 119.38 58.42 270) (mirror x) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-000057fc85cd")
     (property "Reference" "Q7" (id 0) (at 119.38 53.34 90))
-    (property "Value" "Q_PMOS_GSD" (id 1) (at 119.38 52.4002 90)
+    (property "Value" "NX2301P" (id 1) (at 119.38 52.4002 90)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Footprint" "Package_TO_SOT_SMD:SOT-23" (id 2) (at 121.92 53.34 0)

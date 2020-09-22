@@ -1,4 +1,4 @@
-(kicad_sch (version 20200512) (host eeschema "5.99.0-unknown-eae0c14~88~ubuntu18.04.1")
+(kicad_sch (version 20200828) (generator eeschema)
 
   (page 1 5)
 
@@ -13,7 +13,7 @@
   )
 
   (lib_symbols
-    (symbol "Connector:Conn_01x02_Male" (pin_names hide)
+    (symbol "Connector:Conn_01x02_Male" (pin_names hide) (in_bom yes) (on_board yes)
       (property "Reference" "J" (id 0) (at 0 2.54 0)
         (effects (font (size 1.27 1.27)))
       )
@@ -43,11 +43,17 @@
           (stroke (width 0)) (fill (type outline))
         )
         (polyline
-          (pts (xy 1.27 -2.54) (xy 0.8636 -2.54))
+          (pts
+            (xy 1.27 -2.54)
+            (xy 0.8636 -2.54)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 1.27 0) (xy 0.8636 0))
+          (pts
+            (xy 1.27 0)
+            (xy 0.8636 0)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (pin passive line (at 5.08 0 180) (length 3.81)
@@ -60,7 +66,7 @@
         )
       )
     )
-    (symbol "Connector:Conn_01x02_Male_1" (pin_names hide)
+    (symbol "Connector:Conn_01x02_Male_1" (pin_names hide) (in_bom yes) (on_board yes)
       (property "Reference" "J" (id 0) (at 0 2.54 0)
         (effects (font (size 1.27 1.27)))
       )
@@ -90,11 +96,17 @@
           (stroke (width 0)) (fill (type outline))
         )
         (polyline
-          (pts (xy 1.27 -2.54) (xy 0.8636 -2.54))
+          (pts
+            (xy 1.27 -2.54)
+            (xy 0.8636 -2.54)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 1.27 0) (xy 0.8636 0))
+          (pts
+            (xy 1.27 0)
+            (xy 0.8636 0)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (pin passive line (at 5.08 0 180) (length 3.81)
@@ -107,7 +119,7 @@
         )
       )
     )
-    (symbol "Connector:Conn_01x04_Male" (pin_names hide)
+    (symbol "Connector:Conn_01x04_Male" (pin_names hide) (in_bom yes) (on_board yes)
       (property "Reference" "J" (id 0) (at 0 5.08 0)
         (effects (font (size 1.27 1.27)))
       )
@@ -143,19 +155,31 @@
           (stroke (width 0)) (fill (type outline))
         )
         (polyline
-          (pts (xy 1.27 -5.08) (xy 0.8636 -5.08))
+          (pts
+            (xy 1.27 -5.08)
+            (xy 0.8636 -5.08)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 1.27 -2.54) (xy 0.8636 -2.54))
+          (pts
+            (xy 1.27 -2.54)
+            (xy 0.8636 -2.54)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 1.27 0) (xy 0.8636 0))
+          (pts
+            (xy 1.27 0)
+            (xy 0.8636 0)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 1.27 2.54) (xy 0.8636 2.54))
+          (pts
+            (xy 1.27 2.54)
+            (xy 0.8636 2.54)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (pin passive line (at 5.08 2.54 180) (length 3.81)
@@ -176,7 +200,7 @@
         )
       )
     )
-    (symbol "Connector:Conn_01x04_Male_1" (pin_names hide)
+    (symbol "Connector:Conn_01x04_Male_1" (pin_names hide) (in_bom yes) (on_board yes)
       (property "Reference" "J" (id 0) (at 0 5.08 0)
         (effects (font (size 1.27 1.27)))
       )
@@ -212,19 +236,31 @@
           (stroke (width 0)) (fill (type outline))
         )
         (polyline
-          (pts (xy 1.27 -5.08) (xy 0.8636 -5.08))
+          (pts
+            (xy 1.27 -5.08)
+            (xy 0.8636 -5.08)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 1.27 -2.54) (xy 0.8636 -2.54))
+          (pts
+            (xy 1.27 -2.54)
+            (xy 0.8636 -2.54)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 1.27 0) (xy 0.8636 0))
+          (pts
+            (xy 1.27 0)
+            (xy 0.8636 0)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 1.27 2.54) (xy 0.8636 2.54))
+          (pts
+            (xy 1.27 2.54)
+            (xy 0.8636 2.54)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (pin passive line (at 5.08 2.54 180) (length 3.81)
@@ -245,7 +281,7 @@
         )
       )
     )
-    (symbol "Connector:Conn_01x05_Female" (pin_names hide)
+    (symbol "Connector:Conn_01x05_Female" (pin_names hide) (in_bom yes) (on_board yes)
       (property "Reference" "J" (id 0) (at 0 7.62 0)
         (effects (font (size 1.27 1.27)))
       )
@@ -284,23 +320,38 @@
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy -1.27 -5.08) (xy -0.508 -5.08))
+          (pts
+            (xy -1.27 -5.08)
+            (xy -0.508 -5.08)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy -1.27 -2.54) (xy -0.508 -2.54))
+          (pts
+            (xy -1.27 -2.54)
+            (xy -0.508 -2.54)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy -1.27 0) (xy -0.508 0))
+          (pts
+            (xy -1.27 0)
+            (xy -0.508 0)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy -1.27 2.54) (xy -0.508 2.54))
+          (pts
+            (xy -1.27 2.54)
+            (xy -0.508 2.54)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy -1.27 5.08) (xy -0.508 5.08))
+          (pts
+            (xy -1.27 5.08)
+            (xy -0.508 5.08)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (pin passive line (at -5.08 5.08 0) (length 3.81)
@@ -325,7 +376,7 @@
         )
       )
     )
-    (symbol "Connector:Conn_01x06_Female" (pin_names hide)
+    (symbol "Connector:Conn_01x06_Female" (pin_names hide) (in_bom yes) (on_board yes)
       (property "Reference" "J" (id 0) (at 0 7.62 0)
         (effects (font (size 1.27 1.27)))
       )
@@ -367,27 +418,45 @@
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy -1.27 -7.62) (xy -0.508 -7.62))
+          (pts
+            (xy -1.27 -7.62)
+            (xy -0.508 -7.62)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy -1.27 -5.08) (xy -0.508 -5.08))
+          (pts
+            (xy -1.27 -5.08)
+            (xy -0.508 -5.08)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy -1.27 -2.54) (xy -0.508 -2.54))
+          (pts
+            (xy -1.27 -2.54)
+            (xy -0.508 -2.54)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy -1.27 0) (xy -0.508 0))
+          (pts
+            (xy -1.27 0)
+            (xy -0.508 0)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy -1.27 2.54) (xy -0.508 2.54))
+          (pts
+            (xy -1.27 2.54)
+            (xy -0.508 2.54)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy -1.27 5.08) (xy -0.508 5.08))
+          (pts
+            (xy -1.27 5.08)
+            (xy -0.508 5.08)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (pin passive line (at -5.08 5.08 0) (length 3.81)
@@ -416,7 +485,7 @@
         )
       )
     )
-    (symbol "Connector:USB_B_Micro"
+    (symbol "Connector:USB_B_Micro" (in_bom yes) (on_board yes)
       (property "Reference" "J" (id 0) (at -5.08 11.43 0)
         (effects (font (size 1.27 1.27)) (justify left))
       )
@@ -463,31 +532,60 @@
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy -1.905 2.159) (xy 0.635 2.159))
+          (pts
+            (xy -1.905 2.159)
+            (xy 0.635 2.159)
+          )
           (stroke (width 0.254)) (fill (type none))
         )
         (polyline
-          (pts (xy -3.175 2.159) (xy -2.54 2.159) (xy -1.27 3.429) (xy -0.635 3.429))
+          (pts
+            (xy -3.175 2.159)
+            (xy -2.54 2.159)
+            (xy -1.27 3.429)
+            (xy -0.635 3.429)
+          )
           (stroke (width 0.254)) (fill (type none))
         )
         (polyline
-          (pts (xy -2.54 2.159) (xy -1.905 2.159) (xy -1.27 0.889) (xy 0 0.889))
+          (pts
+            (xy -2.54 2.159)
+            (xy -1.905 2.159)
+            (xy -1.27 0.889)
+            (xy 0 0.889)
+          )
           (stroke (width 0.254)) (fill (type none))
         )
         (polyline
-          (pts (xy 0.635 2.794) (xy 0.635 1.524) (xy 1.905 2.159) (xy 0.635 2.794))
+          (pts
+            (xy 0.635 2.794)
+            (xy 0.635 1.524)
+            (xy 1.905 2.159)
+            (xy 0.635 2.794)
+          )
           (stroke (width 0.254)) (fill (type outline))
         )
         (polyline
-          (pts (xy -4.318 5.588) (xy -1.778 5.588) (xy -2.032 4.826) (xy -4.064 4.826)
-               (xy -4.318 5.588)
+          (pts
+            (xy -4.318 5.588)
+            (xy -1.778 5.588)
+            (xy -2.032 4.826)
+            (xy -4.064 4.826)
+            (xy -4.318 5.588)
           )
           (stroke (width 0)) (fill (type outline))
         )
         (polyline
-          (pts (xy -4.699 5.842) (xy -4.699 5.588) (xy -4.445 4.826) (xy -4.445 4.572)
-               (xy -1.651 4.572) (xy -1.651 4.826) (xy -1.397 5.588) (xy -1.397 5.842)
-               (xy -4.699 5.842)
+          (pts
+            (xy -4.699 5.842)
+            (xy -4.699 5.588)
+            (xy -4.445 4.826)
+            (xy -4.445 4.572)
+            (xy -1.651 4.572)
+            (xy -1.651 4.826)
+            (xy -1.397 5.588)
+            (xy -1.397 5.842)
+            (xy -4.699 5.842)
           )
           (stroke (width 0)) (fill (type none))
         )
@@ -519,7 +617,7 @@
         )
       )
     )
-    (symbol "Device:C" (pin_numbers hide) (pin_names (offset 0.254))
+    (symbol "Device:C" (pin_numbers hide) (pin_names (offset 0.254)) (in_bom yes) (on_board yes)
       (property "Reference" "C" (id 0) (at 0.635 2.54 0)
         (effects (font (size 1.27 1.27)) (justify left))
       )
@@ -543,11 +641,17 @@
       )
       (symbol "C_0_1"
         (polyline
-          (pts (xy -2.032 -0.762) (xy 2.032 -0.762))
+          (pts
+            (xy -2.032 -0.762)
+            (xy 2.032 -0.762)
+          )
           (stroke (width 0.508)) (fill (type none))
         )
         (polyline
-          (pts (xy -2.032 0.762) (xy 2.032 0.762))
+          (pts
+            (xy -2.032 0.762)
+            (xy 2.032 0.762)
+          )
           (stroke (width 0.508)) (fill (type none))
         )
       )
@@ -562,7 +666,7 @@
         )
       )
     )
-    (symbol "Device:C_1" (pin_numbers hide) (pin_names (offset 0.254))
+    (symbol "Device:C_1" (pin_numbers hide) (pin_names (offset 0.254)) (in_bom yes) (on_board yes)
       (property "Reference" "C" (id 0) (at 0.635 2.54 0)
         (effects (font (size 1.27 1.27)) (justify left))
       )
@@ -586,11 +690,17 @@
       )
       (symbol "C_1_0_1"
         (polyline
-          (pts (xy -2.032 -0.762) (xy 2.032 -0.762))
+          (pts
+            (xy -2.032 -0.762)
+            (xy 2.032 -0.762)
+          )
           (stroke (width 0.508)) (fill (type none))
         )
         (polyline
-          (pts (xy -2.032 0.762) (xy 2.032 0.762))
+          (pts
+            (xy -2.032 0.762)
+            (xy 2.032 0.762)
+          )
           (stroke (width 0.508)) (fill (type none))
         )
       )
@@ -605,7 +715,7 @@
         )
       )
     )
-    (symbol "Device:C_2" (pin_numbers hide) (pin_names (offset 0.254))
+    (symbol "Device:C_2" (pin_numbers hide) (pin_names (offset 0.254)) (in_bom yes) (on_board yes)
       (property "Reference" "C" (id 0) (at 0.635 2.54 0)
         (effects (font (size 1.27 1.27)) (justify left))
       )
@@ -629,11 +739,17 @@
       )
       (symbol "C_2_0_1"
         (polyline
-          (pts (xy -2.032 -0.762) (xy 2.032 -0.762))
+          (pts
+            (xy -2.032 -0.762)
+            (xy 2.032 -0.762)
+          )
           (stroke (width 0.508)) (fill (type none))
         )
         (polyline
-          (pts (xy -2.032 0.762) (xy 2.032 0.762))
+          (pts
+            (xy -2.032 0.762)
+            (xy 2.032 0.762)
+          )
           (stroke (width 0.508)) (fill (type none))
         )
       )
@@ -648,7 +764,7 @@
         )
       )
     )
-    (symbol "Device:C_3" (pin_numbers hide) (pin_names (offset 0.254))
+    (symbol "Device:C_3" (pin_numbers hide) (pin_names (offset 0.254)) (in_bom yes) (on_board yes)
       (property "Reference" "C" (id 0) (at 0.635 2.54 0)
         (effects (font (size 1.27 1.27)) (justify left))
       )
@@ -672,11 +788,17 @@
       )
       (symbol "C_3_0_1"
         (polyline
-          (pts (xy -2.032 -0.762) (xy 2.032 -0.762))
+          (pts
+            (xy -2.032 -0.762)
+            (xy 2.032 -0.762)
+          )
           (stroke (width 0.508)) (fill (type none))
         )
         (polyline
-          (pts (xy -2.032 0.762) (xy 2.032 0.762))
+          (pts
+            (xy -2.032 0.762)
+            (xy 2.032 0.762)
+          )
           (stroke (width 0.508)) (fill (type none))
         )
       )
@@ -691,7 +813,7 @@
         )
       )
     )
-    (symbol "Device:D_TVS" (pin_numbers hide) (pin_names hide)
+    (symbol "Device:D_TVS" (pin_numbers hide) (pin_names hide) (in_bom yes) (on_board yes)
       (property "Reference" "D" (id 0) (at 0 2.54 0)
         (effects (font (size 1.27 1.27)))
       )
@@ -715,16 +837,28 @@
       )
       (symbol "D_TVS_0_1"
         (polyline
-          (pts (xy 1.27 0) (xy -1.27 0))
+          (pts
+            (xy 1.27 0)
+            (xy -1.27 0)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 0.508 1.27) (xy 0 1.27) (xy 0 -1.27) (xy -0.508 -1.27))
+          (pts
+            (xy 0.508 1.27)
+            (xy 0 1.27)
+            (xy 0 -1.27)
+            (xy -0.508 -1.27)
+          )
           (stroke (width 0.254)) (fill (type none))
         )
         (polyline
-          (pts (xy -2.54 1.27) (xy -2.54 -1.27) (xy 2.54 1.27) (xy 2.54 -1.27)
-               (xy -2.54 1.27)
+          (pts
+            (xy -2.54 1.27)
+            (xy -2.54 -1.27)
+            (xy 2.54 1.27)
+            (xy 2.54 -1.27)
+            (xy -2.54 1.27)
           )
           (stroke (width 0.254)) (fill (type none))
         )
@@ -740,7 +874,7 @@
         )
       )
     )
-    (symbol "Device:D_TVS_x2_AAC" (pin_names hide)
+    (symbol "Device:D_TVS_x2_AAC" (pin_names hide) (in_bom yes) (on_board yes)
       (property "Reference" "D" (id 0) (at 0 4.445 0)
         (effects (font (size 1.27 1.27)))
       )
@@ -762,33 +896,57 @@
       (symbol "D_TVS_x2_AAC_0_1"
         (circle (center 0 0) (radius 0.254) (stroke (width 0)) (fill (type outline)))
         (polyline
-          (pts (xy -6.35 0) (xy 6.35 0))
+          (pts
+            (xy -6.35 0)
+            (xy 6.35 0)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy -3.302 1.27) (xy -3.81 1.27) (xy -3.81 -1.27) (xy -4.318 -1.27))
-          (stroke (width 0.254)) (fill (type none))
-        )
-        (polyline
-          (pts (xy 4.318 1.27) (xy 3.81 1.27) (xy 3.81 -1.27) (xy 3.302 -1.27))
-          (stroke (width 0.254)) (fill (type none))
-        )
-        (polyline
-          (pts (xy -6.35 1.27) (xy -1.27 -1.27) (xy -1.27 1.27) (xy -6.35 -1.27)
-               (xy -6.35 1.27)
+          (pts
+            (xy -3.302 1.27)
+            (xy -3.81 1.27)
+            (xy -3.81 -1.27)
+            (xy -4.318 -1.27)
           )
           (stroke (width 0.254)) (fill (type none))
         )
         (polyline
-          (pts (xy 6.35 1.27) (xy 1.27 -1.27) (xy 1.27 1.27) (xy 6.35 -1.27)
-               (xy 6.35 1.27)
+          (pts
+            (xy 4.318 1.27)
+            (xy 3.81 1.27)
+            (xy 3.81 -1.27)
+            (xy 3.302 -1.27)
+          )
+          (stroke (width 0.254)) (fill (type none))
+        )
+        (polyline
+          (pts
+            (xy -6.35 1.27)
+            (xy -1.27 -1.27)
+            (xy -1.27 1.27)
+            (xy -6.35 -1.27)
+            (xy -6.35 1.27)
+          )
+          (stroke (width 0.254)) (fill (type none))
+        )
+        (polyline
+          (pts
+            (xy 6.35 1.27)
+            (xy 1.27 -1.27)
+            (xy 1.27 1.27)
+            (xy 6.35 -1.27)
+            (xy 6.35 1.27)
           )
           (stroke (width 0.254)) (fill (type none))
         )
       )
       (symbol "D_TVS_x2_AAC_0_0"
         (polyline
-          (pts (xy 0 -1.27) (xy 0 0))
+          (pts
+            (xy 0 -1.27)
+            (xy 0 0)
+          )
           (stroke (width 0)) (fill (type none))
         )
       )
@@ -807,7 +965,7 @@
         )
       )
     )
-    (symbol "Device:LED" (pin_numbers hide) (pin_names hide)
+    (symbol "Device:LED" (pin_numbers hide) (pin_names hide) (in_bom yes) (on_board yes)
       (property "Reference" "D" (id 0) (at 0 2.54 0)
         (effects (font (size 1.27 1.27)))
       )
@@ -831,26 +989,45 @@
       )
       (symbol "LED_0_1"
         (polyline
-          (pts (xy -1.27 -1.27) (xy -1.27 1.27))
+          (pts
+            (xy -1.27 -1.27)
+            (xy -1.27 1.27)
+          )
           (stroke (width 0.254)) (fill (type none))
         )
         (polyline
-          (pts (xy -1.27 0) (xy 1.27 0))
-          (stroke (width 0)) (fill (type none))
-        )
-        (polyline
-          (pts (xy 1.27 -1.27) (xy 1.27 1.27) (xy -1.27 0) (xy 1.27 -1.27))
-          (stroke (width 0.254)) (fill (type none))
-        )
-        (polyline
-          (pts (xy -3.048 -0.762) (xy -4.572 -2.286) (xy -3.81 -2.286) (xy -4.572 -2.286)
-               (xy -4.572 -1.524)
+          (pts
+            (xy -1.27 0)
+            (xy 1.27 0)
           )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy -1.778 -0.762) (xy -3.302 -2.286) (xy -2.54 -2.286) (xy -3.302 -2.286)
-               (xy -3.302 -1.524)
+          (pts
+            (xy 1.27 -1.27)
+            (xy 1.27 1.27)
+            (xy -1.27 0)
+            (xy 1.27 -1.27)
+          )
+          (stroke (width 0.254)) (fill (type none))
+        )
+        (polyline
+          (pts
+            (xy -3.048 -0.762)
+            (xy -4.572 -2.286)
+            (xy -3.81 -2.286)
+            (xy -4.572 -2.286)
+            (xy -4.572 -1.524)
+          )
+          (stroke (width 0)) (fill (type none))
+        )
+        (polyline
+          (pts
+            (xy -1.778 -0.762)
+            (xy -3.302 -2.286)
+            (xy -2.54 -2.286)
+            (xy -3.302 -2.286)
+            (xy -3.302 -1.524)
           )
           (stroke (width 0)) (fill (type none))
         )
@@ -866,7 +1043,7 @@
         )
       )
     )
-    (symbol "Device:R" (pin_numbers hide) (pin_names (offset 0))
+    (symbol "Device:R" (pin_numbers hide) (pin_names (offset 0)) (in_bom yes) (on_board yes)
       (property "Reference" "R" (id 0) (at 2.032 0 90)
         (effects (font (size 1.27 1.27)))
       )
@@ -904,7 +1081,7 @@
         )
       )
     )
-    (symbol "Mechanical:Fiducial" (pin_names (offset 0.508))
+    (symbol "Mechanical:Fiducial" (in_bom yes) (on_board yes)
       (property "Reference" "FID" (id 0) (at 0 5.08 0)
         (effects (font (size 1.27 1.27)))
       )
@@ -930,7 +1107,7 @@
         (circle (center 0 0) (radius 1.27) (stroke (width 0.508)) (fill (type background)))
       )
     )
-    (symbol "Mechanical:MountingHole"
+    (symbol "Mechanical:MountingHole" (in_bom yes) (on_board yes)
       (property "Reference" "H" (id 0) (at 0 5.08 0)
         (effects (font (size 1.27 1.27)))
       )
@@ -956,7 +1133,7 @@
         (circle (center 0 0) (radius 1.27) (stroke (width 1.27)) (fill (type none)))
       )
     )
-    (symbol "Switch:SW_Push_Dual" (pin_names hide)
+    (symbol "Switch:SW_Push_Dual" (pin_names hide) (in_bom yes) (on_board yes)
       (property "Reference" "SW" (id 0) (at 1.27 2.54 0)
         (effects (font (size 1.27 1.27)) (justify left))
       )
@@ -981,35 +1158,59 @@
         (circle (center 2.032 -5.08) (radius 0.508) (stroke (width 0)) (fill (type none)))
         (circle (center 2.032 0) (radius 0.508) (stroke (width 0)) (fill (type none)))
         (polyline
-          (pts (xy 0 -3.048) (xy 0 -3.556))
+          (pts
+            (xy 0 -3.048)
+            (xy 0 -3.556)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 0 -2.032) (xy 0 -2.54))
+          (pts
+            (xy 0 -2.032)
+            (xy 0 -2.54)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 0 -1.524) (xy 0 -1.016))
+          (pts
+            (xy 0 -1.524)
+            (xy 0 -1.016)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 0 -0.508) (xy 0 0))
+          (pts
+            (xy 0 -0.508)
+            (xy 0 0)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 0 0.508) (xy 0 1.016))
+          (pts
+            (xy 0 0.508)
+            (xy 0 1.016)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 0 1.27) (xy 0 3.048))
+          (pts
+            (xy 0 1.27)
+            (xy 0 3.048)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 2.54 -3.81) (xy -2.54 -3.81))
+          (pts
+            (xy 2.54 -3.81)
+            (xy -2.54 -3.81)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 2.54 1.27) (xy -2.54 1.27))
+          (pts
+            (xy 2.54 1.27)
+            (xy -2.54 1.27)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (pin passive line (at -5.08 0 0) (length 2.54)
@@ -1030,7 +1231,7 @@
         )
       )
     )
-    (symbol "miceuz:RAK4260"
+    (symbol "miceuz:RAK4260" (in_bom yes) (on_board yes)
       (property "Reference" "U" (id 0) (at -7.62 11.43 0)
         (effects (font (size 1.27 1.27)))
       )
@@ -1231,7 +1432,7 @@
         )
       )
     )
-    (symbol "miceuz:RAK4260_1"
+    (symbol "miceuz:RAK4260_1" (in_bom yes) (on_board yes)
       (property "Reference" "U" (id 0) (at -7.62 11.43 0)
         (effects (font (size 1.27 1.27)))
       )
@@ -1432,7 +1633,7 @@
         )
       )
     )
-    (symbol "miceuz:RAK4260_2"
+    (symbol "miceuz:RAK4260_2" (in_bom yes) (on_board yes)
       (property "Reference" "U" (id 0) (at -7.62 11.43 0)
         (effects (font (size 1.27 1.27)))
       )
@@ -1633,7 +1834,7 @@
         )
       )
     )
-    (symbol "power:+3V3" (power) (pin_names (offset 0))
+    (symbol "power:+3V3" (power) (pin_names (offset 0)) (in_bom yes) (on_board yes)
       (property "Reference" "#PWR" (id 0) (at 0 -3.81 0)
         (effects (font (size 1.27 1.27)) hide)
       )
@@ -1654,15 +1855,24 @@
       )
       (symbol "+3V3_0_1"
         (polyline
-          (pts (xy -0.762 1.27) (xy 0 2.54))
+          (pts
+            (xy -0.762 1.27)
+            (xy 0 2.54)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 0 0) (xy 0 2.54))
+          (pts
+            (xy 0 0)
+            (xy 0 2.54)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 0 2.54) (xy 0.762 1.27))
+          (pts
+            (xy 0 2.54)
+            (xy 0.762 1.27)
+          )
           (stroke (width 0)) (fill (type none))
         )
       )
@@ -1673,7 +1883,7 @@
         )
       )
     )
-    (symbol "power:+BATT" (power) (pin_names (offset 0))
+    (symbol "power:+BATT" (power) (pin_names (offset 0)) (in_bom yes) (on_board yes)
       (property "Reference" "#PWR" (id 0) (at 0 -3.81 0)
         (effects (font (size 1.27 1.27)) hide)
       )
@@ -1694,15 +1904,24 @@
       )
       (symbol "+BATT_0_1"
         (polyline
-          (pts (xy -0.762 1.27) (xy 0 2.54))
+          (pts
+            (xy -0.762 1.27)
+            (xy 0 2.54)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 0 0) (xy 0 2.54))
+          (pts
+            (xy 0 0)
+            (xy 0 2.54)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 0 2.54) (xy 0.762 1.27))
+          (pts
+            (xy 0 2.54)
+            (xy 0.762 1.27)
+          )
           (stroke (width 0)) (fill (type none))
         )
       )
@@ -1713,7 +1932,7 @@
         )
       )
     )
-    (symbol "power:GND" (power) (pin_names (offset 0))
+    (symbol "power:GND" (power) (pin_names (offset 0)) (in_bom yes) (on_board yes)
       (property "Reference" "#PWR" (id 0) (at 0 -6.35 0)
         (effects (font (size 1.27 1.27)) hide)
       )
@@ -1734,8 +1953,13 @@
       )
       (symbol "GND_0_1"
         (polyline
-          (pts (xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54)
-               (xy -1.27 -1.27) (xy 0 -1.27)
+          (pts
+            (xy 0 0)
+            (xy 0 -1.27)
+            (xy 1.27 -1.27)
+            (xy 0 -2.54)
+            (xy -1.27 -1.27)
+            (xy 0 -1.27)
           )
           (stroke (width 0)) (fill (type none))
         )
@@ -1747,7 +1971,7 @@
         )
       )
     )
-    (symbol "power:VBUS" (power) (pin_names (offset 0))
+    (symbol "power:VBUS" (power) (pin_names (offset 0)) (in_bom yes) (on_board yes)
       (property "Reference" "#PWR" (id 0) (at 0 -3.81 0)
         (effects (font (size 1.27 1.27)) hide)
       )
@@ -1768,15 +1992,24 @@
       )
       (symbol "VBUS_0_1"
         (polyline
-          (pts (xy -0.762 1.27) (xy 0 2.54))
+          (pts
+            (xy -0.762 1.27)
+            (xy 0 2.54)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 0 0) (xy 0 2.54))
+          (pts
+            (xy 0 0)
+            (xy 0 2.54)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 0 2.54) (xy 0.762 1.27))
+          (pts
+            (xy 0 2.54)
+            (xy 0.762 1.27)
+          )
           (stroke (width 0)) (fill (type none))
         )
       )
@@ -1789,40 +2022,40 @@
     )
   )
 
-  (junction (at 26.67 71.12))
-  (junction (at 29.845 29.21))
-  (junction (at 34.29 55.88))
-  (junction (at 55.88 77.47))
-  (junction (at 57.15 55.88))
-  (junction (at 120.65 107.95))
-  (junction (at 120.65 115.57))
-  (junction (at 128.27 107.95))
-  (junction (at 133.35 149.86))
-  (junction (at 138.43 113.03))
-  (junction (at 143.51 154.94))
-  (junction (at 149.86 129.54))
-  (junction (at 160.02 19.05))
-  (junction (at 160.02 26.67))
-  (junction (at 165.1 129.54))
-  (junction (at 165.1 137.16))
-  (junction (at 168.275 181.61))
-  (junction (at 168.275 189.23))
-  (junction (at 172.72 129.54))
-  (junction (at 176.53 19.05))
-  (junction (at 176.53 45.72))
-  (junction (at 179.07 45.72))
-  (junction (at 181.61 45.72))
-  (junction (at 184.15 45.72))
-  (junction (at 186.69 45.72))
-  (junction (at 189.23 45.72))
-  (junction (at 191.77 45.72))
-  (junction (at 194.31 45.72))
-  (junction (at 196.85 45.72))
-  (junction (at 199.39 45.72))
-  (junction (at 201.93 45.72))
-  (junction (at 252.73 112.395))
-  (junction (at 256.54 95.25))
-  (junction (at 256.54 102.87))
+  (junction (at 26.67 71.12) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 29.845 29.21) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 34.29 55.88) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 55.88 77.47) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 57.15 55.88) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 120.65 107.95) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 120.65 115.57) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 128.27 107.95) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 133.35 149.86) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 138.43 113.03) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 143.51 154.94) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 149.86 129.54) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 160.02 19.05) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 160.02 26.67) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 165.1 129.54) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 165.1 137.16) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 168.275 181.61) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 168.275 189.23) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 172.72 129.54) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 176.53 19.05) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 176.53 45.72) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 179.07 45.72) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 181.61 45.72) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 184.15 45.72) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 186.69 45.72) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 189.23 45.72) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 191.77 45.72) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 194.31 45.72) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 196.85 45.72) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 199.39 45.72) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 201.93 45.72) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 252.73 112.395) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 256.54 95.25) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 256.54 102.87) (diameter 1.016) (color 0 0 0 0))
 
   (wire (pts (xy 24.13 71.12) (xy 26.67 71.12))
     (stroke (width 0) (type solid) (color 0 0 0 0))
@@ -2242,6 +2475,7 @@
   )
 
   (symbol (lib_id "power:VBUS") (at 34.29 49.53 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d869d8c")
     (property "Reference" "#PWR0124" (id 0) (at 34.29 53.34 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -2256,6 +2490,7 @@
   )
 
   (symbol (lib_id "power:+3V3") (at 40.005 105.41 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005e1e0966")
     (property "Reference" "#PWR0134" (id 0) (at 40.005 109.22 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -2270,6 +2505,7 @@
   )
 
   (symbol (lib_id "power:VBUS") (at 42.545 24.13 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d87b458")
     (property "Reference" "#PWR0126" (id 0) (at 42.545 27.94 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -2284,6 +2520,7 @@
   )
 
   (symbol (lib_id "power:+BATT") (at 72.39 29.21 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d823bd2")
     (property "Reference" "#PWR0102" (id 0) (at 72.39 33.02 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -2298,6 +2535,7 @@
   )
 
   (symbol (lib_id "power:+BATT") (at 93.345 29.21 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d8258b6")
     (property "Reference" "#PWR0103" (id 0) (at 93.345 33.02 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -2312,6 +2550,7 @@
   )
 
   (symbol (lib_id "power:+3V3") (at 120.65 100.33 0) (mirror y) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d87eb1b")
     (property "Reference" "#PWR0128" (id 0) (at 120.65 104.14 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -2326,6 +2565,7 @@
   )
 
   (symbol (lib_id "power:+3V3") (at 125.095 29.21 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d826826")
     (property "Reference" "#PWR0105" (id 0) (at 125.095 33.02 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -2340,6 +2580,7 @@
   )
 
   (symbol (lib_id "power:+3V3") (at 176.53 19.05 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d8367d6")
     (property "Reference" "#PWR0113" (id 0) (at 176.53 22.86 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -2354,6 +2595,7 @@
   )
 
   (symbol (lib_id "power:+BATT") (at 212.09 110.49 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d82c3b1")
     (property "Reference" "#PWR0108" (id 0) (at 212.09 114.3 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -2368,6 +2610,7 @@
   )
 
   (symbol (lib_id "power:+3V3") (at 217.805 146.05 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d84dd26")
     (property "Reference" "#PWR0121" (id 0) (at 217.805 149.86 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -2382,6 +2625,7 @@
   )
 
   (symbol (lib_id "power:+3V3") (at 218.44 110.49 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d829063")
     (property "Reference" "#PWR0106" (id 0) (at 218.44 114.3 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -2396,6 +2640,7 @@
   )
 
   (symbol (lib_id "power:GND") (at 26.67 71.12 0) (mirror y) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d86a27e")
     (property "Reference" "#PWR0125" (id 0) (at 26.67 77.47 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -2410,6 +2655,7 @@
   )
 
   (symbol (lib_id "power:GND") (at 28.575 121.285 0) (mirror y) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d92311f")
     (property "Reference" "#PWR0133" (id 0) (at 28.575 127.635 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -2424,6 +2670,7 @@
   )
 
   (symbol (lib_id "power:GND") (at 29.845 31.115 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d8239ea")
     (property "Reference" "#PWR0101" (id 0) (at 29.845 37.465 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -2438,6 +2685,7 @@
   )
 
   (symbol (lib_id "power:GND") (at 55.88 77.47 0) (mirror y) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d87e2a8")
     (property "Reference" "#PWR0127" (id 0) (at 55.88 83.82 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -2452,6 +2700,7 @@
   )
 
   (symbol (lib_id "power:GND") (at 93.345 33.655 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d8262c0")
     (property "Reference" "#PWR0104" (id 0) (at 93.345 40.005 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -2466,6 +2715,7 @@
   )
 
   (symbol (lib_id "power:GND") (at 120.65 115.57 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d87f278")
     (property "Reference" "#PWR0129" (id 0) (at 120.65 121.92 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -2480,6 +2730,7 @@
   )
 
   (symbol (lib_id "power:GND") (at 143.51 154.94 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d8835af")
     (property "Reference" "#PWR0131" (id 0) (at 143.51 161.29 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -2494,6 +2745,7 @@
   )
 
   (symbol (lib_id "power:GND") (at 165.1 137.16 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "a8e46a29-b105-41ce-933e-34e0799b3976")
     (property "Reference" "#PWR0110" (id 0) (at 165.1 143.51 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -2508,6 +2760,7 @@
   )
 
   (symbol (lib_id "power:GND") (at 168.275 189.23 0) (mirror y) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d88bd34")
     (property "Reference" "#PWR0135" (id 0) (at 168.275 195.58 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -2522,6 +2775,7 @@
   )
 
   (symbol (lib_id "power:GND") (at 191.77 45.72 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d8367e4")
     (property "Reference" "#PWR0114" (id 0) (at 191.77 52.07 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -2536,6 +2790,7 @@
   )
 
   (symbol (lib_id "power:GND") (at 217.17 160.02 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005dafb4a2")
     (property "Reference" "#PWR01" (id 0) (at 217.17 166.37 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -2550,6 +2805,7 @@
   )
 
   (symbol (lib_id "power:GND") (at 217.805 130.175 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d82c7c0")
     (property "Reference" "#PWR0109" (id 0) (at 217.805 136.525 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -2564,6 +2820,7 @@
   )
 
   (symbol (lib_id "power:GND") (at 255.905 154.94 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d84d8ca")
     (property "Reference" "#PWR0120" (id 0) (at 255.905 161.29 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -2578,6 +2835,7 @@
   )
 
   (symbol (lib_id "power:GND") (at 256.54 102.87 0) (mirror y) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d8ced25")
     (property "Reference" "#PWR0132" (id 0) (at 256.54 109.22 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -2592,6 +2850,7 @@
   )
 
   (symbol (lib_id "power:GND") (at 257.175 41.91 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d83adee")
     (property "Reference" "#PWR0116" (id 0) (at 257.175 48.26 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -2606,6 +2865,7 @@
   )
 
   (symbol (lib_id "power:GND") (at 257.175 120.015 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d82bca8")
     (property "Reference" "#PWR0107" (id 0) (at 257.175 126.365 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -2620,6 +2880,7 @@
   )
 
   (symbol (lib_id "Mechanical:Fiducial") (at 20.955 158.115 0) (unit 1)
+    (in_bom no) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005e2b5a32")
     (property "Reference" "FID1" (id 0) (at 23.114 156.972 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -2636,6 +2897,7 @@
   )
 
   (symbol (lib_id "Mechanical:Fiducial") (at 20.955 163.195 0) (unit 1)
+    (in_bom no) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005e2b5bae")
     (property "Reference" "FID2" (id 0) (at 23.114 162.052 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -2652,6 +2914,7 @@
   )
 
   (symbol (lib_id "Mechanical:MountingHole") (at 20.955 136.525 0) (unit 1)
+    (in_bom no) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d92d1c4")
     (property "Reference" "H1" (id 0) (at 23.495 135.3566 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -2668,6 +2931,7 @@
   )
 
   (symbol (lib_id "Mechanical:MountingHole") (at 20.955 140.97 0) (unit 1)
+    (in_bom no) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d92e86e")
     (property "Reference" "H2" (id 0) (at 23.495 139.8016 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -2684,6 +2948,7 @@
   )
 
   (symbol (lib_id "Mechanical:MountingHole") (at 20.955 145.415 0) (unit 1)
+    (in_bom no) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d92d1f4")
     (property "Reference" "H3" (id 0) (at 23.495 144.2466 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -2700,6 +2965,7 @@
   )
 
   (symbol (lib_id "Mechanical:MountingHole") (at 20.955 150.495 0) (unit 1)
+    (in_bom no) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d92d005")
     (property "Reference" "H4" (id 0) (at 23.495 149.3266 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -2716,6 +2982,7 @@
   )
 
   (symbol (lib_id "Device:R") (at 40.005 109.855 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005e1e0948")
     (property "Reference" "R25" (id 0) (at 41.783 108.6866 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -2732,6 +2999,7 @@
   )
 
   (symbol (lib_id "Device:R") (at 120.65 104.14 0) (mirror y) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d87e85d")
     (property "Reference" "R1" (id 0) (at 118.872 102.9716 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -2748,6 +3016,7 @@
   )
 
   (symbol (lib_id "Device:R") (at 156.845 174.625 90) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d88d1f7")
     (property "Reference" "R13" (id 0) (at 155.6766 172.847 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -2764,6 +3033,7 @@
   )
 
   (symbol (lib_id "Device:R") (at 156.845 181.61 90) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d88dc75")
     (property "Reference" "R14" (id 0) (at 155.6766 179.832 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -2780,6 +3050,7 @@
   )
 
   (symbol (lib_id "Device:R") (at 156.845 189.23 90) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d88e64b")
     (property "Reference" "R15" (id 0) (at 155.6766 187.452 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -2796,6 +3067,7 @@
   )
 
   (symbol (lib_id "Device:R") (at 256.54 91.44 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d8ced02")
     (property "Reference" "R11" (id 0) (at 258.318 90.2716 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -2812,6 +3084,7 @@
   )
 
   (symbol (lib_id "Device:R") (at 256.54 99.06 0) (mirror x) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d8d1b0f")
     (property "Reference" "R12" (id 0) (at 258.318 100.2284 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -2828,6 +3101,7 @@
   )
 
   (symbol (lib_id "Device:D_TVS") (at 149.86 133.35 90) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "7c7e9130-4dc3-4b70-b688-e235423fbc11")
     (property "Reference" "D10" (id 0) (at 151.8921 132.2006 90)
       (effects (font (size 1.27 1.27)) (justify right))
@@ -2844,6 +3118,7 @@
   )
 
   (symbol (lib_name "Connector:Conn_01x02_Male_1") (lib_id "Connector:Conn_01x02_Male") (at 22.86 29.21 0) (mirror x) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d8230d5")
     (property "Reference" "J1" (id 0) (at 25.6032 33.8074 0))
     (property "Value" "battery" (id 1) (at 25.6032 31.496 0))
@@ -2856,6 +3131,7 @@
   )
 
   (symbol (lib_id "Connector:Conn_01x02_Male") (at 262.255 39.37 0) (mirror y) (unit 1)
+    (in_bom no) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d83a63a")
     (property "Reference" "J2" (id 0) (at 262.9662 42.3672 0)
       (effects (font (size 1.27 1.27)) (justify right))
@@ -2881,6 +3157,7 @@
   )
 
   (symbol (lib_id "Device:LED") (at 164.465 174.625 180) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d88b507")
     (property "Reference" "D6" (id 0) (at 164.6428 170.4594 0))
     (property "Value" "LED" (id 1) (at 164.6428 170.4594 0)
@@ -2895,6 +3172,7 @@
   )
 
   (symbol (lib_id "Device:LED") (at 164.465 181.61 180) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d897a25")
     (property "Reference" "D7" (id 0) (at 164.465 179.705 0))
     (property "Value" "LED" (id 1) (at 164.6428 177.4444 0)
@@ -2909,6 +3187,7 @@
   )
 
   (symbol (lib_id "Device:LED") (at 164.465 189.23 180) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d88b948")
     (property "Reference" "D8" (id 0) (at 164.465 186.69 0))
     (property "Value" "LED" (id 1) (at 164.6428 185.0644 0)
@@ -2923,6 +3202,7 @@
   )
 
   (symbol (lib_id "Device:C") (at 120.65 111.76 0) (mirror y) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d87ee5c")
     (property "Reference" "C3" (id 0) (at 117.729 110.5916 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -2939,6 +3219,7 @@
   )
 
   (symbol (lib_id "Device:C") (at 143.51 22.86 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d88984c")
     (property "Reference" "C14" (id 0) (at 146.431 21.6916 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -2955,6 +3236,7 @@
   )
 
   (symbol (lib_id "Device:C") (at 160.02 22.86 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d83763c")
     (property "Reference" "C6" (id 0) (at 162.941 21.6916 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -2971,6 +3253,7 @@
   )
 
   (symbol (lib_name "Device:C_1") (lib_id "Device:C") (at 165.1 133.35 0) (mirror y) (unit 1)
+    (in_bom no) (on_board no)
     (uuid "51defa6e-05cd-440b-bc49-b503905062d0")
     (property "Reference" "C1" (id 0) (at 162.179 132.1816 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -2987,6 +3270,7 @@
   )
 
   (symbol (lib_name "Device:C_2") (lib_id "Device:C") (at 168.91 129.54 90) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "3ed324a5-ba4b-472b-b5b6-cd9992175b68")
     (property "Reference" "C2" (id 0) (at 167.7416 126.619 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -3003,6 +3287,7 @@
   )
 
   (symbol (lib_name "Device:C_3") (lib_id "Device:C") (at 172.72 133.35 0) (unit 1)
+    (in_bom no) (on_board no)
     (uuid "c2b7e898-78e5-4e77-85a9-5cac2e3a84e8")
     (property "Reference" "C4" (id 0) (at 175.641 132.1816 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -3019,6 +3304,7 @@
   )
 
   (symbol (lib_id "Device:C") (at 264.795 99.06 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d8ced13")
     (property "Reference" "C13" (id 0) (at 267.716 97.8916 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -3035,6 +3321,7 @@
   )
 
   (symbol (lib_id "Connector:Conn_01x04_Male") (at 260.985 149.86 0) (mirror y) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d84bc6f")
     (property "Reference" "J3" (id 0) (at 261.6962 152.8572 0)
       (effects (font (size 1.27 1.27)) (justify right))
@@ -3051,6 +3338,7 @@
   )
 
   (symbol (lib_name "Connector:Conn_01x04_Male_1") (lib_id "Connector:Conn_01x04_Male") (at 262.255 114.935 0) (mirror y) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d82a501")
     (property "Reference" "J4" (id 0) (at 262.9662 117.9322 0)
       (effects (font (size 1.27 1.27)) (justify right))
@@ -3067,6 +3355,7 @@
   )
 
   (symbol (lib_id "Connector:Conn_01x05_Female") (at 124.46 170.18 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "c31c22dc-a233-4ff5-8534-c64800c918b7")
     (property "Reference" "J6" (id 0) (at 125.1713 169.4878 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -3083,6 +3372,7 @@
   )
 
   (symbol (lib_id "Connector:Conn_01x06_Female") (at 23.495 113.665 0) (mirror y) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005c0534ac")
     (property "Reference" "J5" (id 0) (at 23.495 105.41 0))
     (property "Value" "SWD" (id 1) (at 20.32 113.665 0))
@@ -3098,9 +3388,10 @@
   )
 
   (symbol (lib_id "Device:D_TVS_x2_AAC") (at 45.72 73.66 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005daf9c1b")
     (property "Reference" "D4" (id 0) (at 45.72 70.485 0))
-    (property "Value" "D_TVS_x2_AAC" (id 1) (at 45.72 70.485 0)
+    (property "Value" "5V6" (id 1) (at 45.72 70.485 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Footprint" "miceuz-lib:SC89" (id 2) (at 41.91 73.66 0)
@@ -3118,9 +3409,10 @@
   )
 
   (symbol (lib_id "Device:D_TVS_x2_AAC") (at 66.04 73.66 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d880d1f")
     (property "Reference" "D1" (id 0) (at 66.04 70.485 0))
-    (property "Value" "D_TVS_x2_AAC" (id 1) (at 66.04 70.485 0)
+    (property "Value" "5V6" (id 1) (at 66.04 70.485 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Footprint" "miceuz-lib:SC89" (id 2) (at 62.23 73.66 0)
@@ -3138,6 +3430,7 @@
   )
 
   (symbol (lib_id "Switch:SW_Push_Dual") (at 133.35 107.95 0) (mirror y) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d87faa0")
     (property "Reference" "SW2" (id 0) (at 133.35 100.711 0))
     (property "Value" "SW_Reset" (id 1) (at 133.35 103.0224 0))
@@ -3150,6 +3443,7 @@
   )
 
   (symbol (lib_id "Switch:SW_Push_Dual") (at 138.43 149.86 0) (mirror y) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d8835bd")
     (property "Reference" "SW1" (id 0) (at 138.43 142.621 0))
     (property "Value" "SW_Test" (id 1) (at 138.43 144.9324 0))
@@ -3162,6 +3456,7 @@
   )
 
   (symbol (lib_id "Connector:USB_B_Micro") (at 26.67 60.96 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005cda92f9")
     (property "Reference" "J9" (id 0) (at 26.67 50.8 0))
     (property "Value" "USB micro" (id 1) (at 28.1178 51.4096 0)
@@ -3182,6 +3477,7 @@
   )
 
   (symbol (lib_name "miceuz:RAK4260_2") (lib_id "miceuz:RAK4260") (at 92.71 110.49 0) (unit 2)
+    (in_bom yes) (on_board yes)
     (uuid "f3725e36-b705-47bc-ba98-c818125707c8")
     (property "Reference" "U5" (id 0) (at 84.379 109.341 0)
       (effects (font (size 1.27 1.27)) (justify right))
@@ -3198,6 +3494,7 @@
   )
 
   (symbol (lib_name "miceuz:RAK4260_1") (lib_id "miceuz:RAK4260") (at 190.5 31.75 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "d0f1843f-1886-4f38-bec9-1782e1bec6d9")
     (property "Reference" "U5" (id 0) (at 206.4513 36.9506 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -3214,6 +3511,7 @@
   )
 
   (symbol (lib_id "miceuz:RAK4260") (at 99.06 154.94 0) (unit 3)
+    (in_bom yes) (on_board yes)
     (uuid "d387ca61-e91d-4549-8773-e6b636fdd212")
     (property "Reference" "U5" (id 0) (at 80.01 124.46 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -3231,7 +3529,8 @@
 
   (sheet (at 220.98 144.145) (size 25.4 18.415)
     (stroke (width 0.1524) (type solid) (color 132 0 132 1))
-    (fill (color 255 255 255 1.0000))    (uuid 00000000-0000-0000-0000-00005d84b44c)
+    (fill (color 255 255 255 1.0000))
+    (uuid 00000000-0000-0000-0000-00005d84b44c)
     (property "Sheet name" "I2C-interface" (id 0) (at 220.98 143.5095 0)
       (effects (font (size 1.27 1.27)) (justify left bottom))
     )
@@ -3260,7 +3559,8 @@
 
   (sheet (at 220.98 107.95) (size 25.4 23.495)
     (stroke (width 0.1524) (type solid) (color 132 0 132 1))
-    (fill (color 255 255 255 1.0000))    (uuid 00000000-0000-0000-0000-00005d825820)
+    (fill (color 255 255 255 1.0000))
+    (uuid 00000000-0000-0000-0000-00005d825820)
     (property "Sheet name" "RS485-interface" (id 0) (at 220.98 107.3145 0)
       (effects (font (size 1.27 1.27)) (justify left bottom))
     )
@@ -3304,7 +3604,8 @@
 
   (sheet (at 45.085 22.225) (size 23.495 13.335)
     (stroke (width 0.1524) (type solid) (color 132 0 132 1))
-    (fill (color 255 255 255 1.0000))    (uuid 00000000-0000-0000-0000-00005d8236a8)
+    (fill (color 255 255 255 1.0000))
+    (uuid 00000000-0000-0000-0000-00005d8236a8)
     (property "Sheet name" "battery-protection" (id 0) (at 45.085 21.5895 0)
       (effects (font (size 1.27 1.27)) (justify left bottom))
     )
@@ -3327,7 +3628,8 @@
 
   (sheet (at 97.79 22.225) (size 23.495 13.335)
     (stroke (width 0.1524) (type solid) (color 132 0 132 1))
-    (fill (color 255 255 255 1.0000))    (uuid 00000000-0000-0000-0000-00005d8260b7)
+    (fill (color 255 255 255 1.0000))
+    (uuid 00000000-0000-0000-0000-00005d8260b7)
     (property "Sheet name" "voltage-regulation" (id 0) (at 97.79 21.5895 0)
       (effects (font (size 1.27 1.27)) (justify left bottom))
     )
@@ -3347,286 +3649,286 @@
 
   (symbol_instances
     (path "/00000000-0000-0000-0000-00005dafb4a2"
-      (reference "#PWR01") (unit 1)
+      (reference "#PWR01") (unit 1) (value "GND") (footprint "")
     )
     (path "/00000000-0000-0000-0000-00005d8239ea"
-      (reference "#PWR0101") (unit 1)
+      (reference "#PWR0101") (unit 1) (value "GND") (footprint "")
     )
     (path "/00000000-0000-0000-0000-00005d823bd2"
-      (reference "#PWR0102") (unit 1)
+      (reference "#PWR0102") (unit 1) (value "+BATT") (footprint "")
     )
     (path "/00000000-0000-0000-0000-00005d8258b6"
-      (reference "#PWR0103") (unit 1)
+      (reference "#PWR0103") (unit 1) (value "+BATT") (footprint "")
     )
     (path "/00000000-0000-0000-0000-00005d8262c0"
-      (reference "#PWR0104") (unit 1)
+      (reference "#PWR0104") (unit 1) (value "GND") (footprint "")
     )
     (path "/00000000-0000-0000-0000-00005d826826"
-      (reference "#PWR0105") (unit 1)
+      (reference "#PWR0105") (unit 1) (value "+3V3") (footprint "")
     )
     (path "/00000000-0000-0000-0000-00005d829063"
-      (reference "#PWR0106") (unit 1)
+      (reference "#PWR0106") (unit 1) (value "+3V3") (footprint "")
     )
     (path "/00000000-0000-0000-0000-00005d82bca8"
-      (reference "#PWR0107") (unit 1)
+      (reference "#PWR0107") (unit 1) (value "GND") (footprint "")
     )
     (path "/00000000-0000-0000-0000-00005d82c3b1"
-      (reference "#PWR0108") (unit 1)
+      (reference "#PWR0108") (unit 1) (value "+BATT") (footprint "")
     )
     (path "/00000000-0000-0000-0000-00005d82c7c0"
-      (reference "#PWR0109") (unit 1)
+      (reference "#PWR0109") (unit 1) (value "GND") (footprint "")
     )
     (path "/a8e46a29-b105-41ce-933e-34e0799b3976"
-      (reference "#PWR0110") (unit 1)
+      (reference "#PWR0110") (unit 1) (value "GND") (footprint "")
     )
     (path "/00000000-0000-0000-0000-00005d8367d6"
-      (reference "#PWR0113") (unit 1)
+      (reference "#PWR0113") (unit 1) (value "+3V3") (footprint "")
     )
     (path "/00000000-0000-0000-0000-00005d8367e4"
-      (reference "#PWR0114") (unit 1)
+      (reference "#PWR0114") (unit 1) (value "GND") (footprint "")
     )
     (path "/00000000-0000-0000-0000-00005d83adee"
-      (reference "#PWR0116") (unit 1)
+      (reference "#PWR0116") (unit 1) (value "GND") (footprint "")
     )
     (path "/00000000-0000-0000-0000-00005d84d8ca"
-      (reference "#PWR0120") (unit 1)
+      (reference "#PWR0120") (unit 1) (value "GND") (footprint "")
     )
     (path "/00000000-0000-0000-0000-00005d84dd26"
-      (reference "#PWR0121") (unit 1)
+      (reference "#PWR0121") (unit 1) (value "+3V3") (footprint "")
     )
     (path "/00000000-0000-0000-0000-00005d869d8c"
-      (reference "#PWR0124") (unit 1)
+      (reference "#PWR0124") (unit 1) (value "VBUS") (footprint "")
     )
     (path "/00000000-0000-0000-0000-00005d86a27e"
-      (reference "#PWR0125") (unit 1)
+      (reference "#PWR0125") (unit 1) (value "GND") (footprint "")
     )
     (path "/00000000-0000-0000-0000-00005d87b458"
-      (reference "#PWR0126") (unit 1)
+      (reference "#PWR0126") (unit 1) (value "VBUS") (footprint "")
     )
     (path "/00000000-0000-0000-0000-00005d87e2a8"
-      (reference "#PWR0127") (unit 1)
+      (reference "#PWR0127") (unit 1) (value "GND") (footprint "")
     )
     (path "/00000000-0000-0000-0000-00005d87eb1b"
-      (reference "#PWR0128") (unit 1)
+      (reference "#PWR0128") (unit 1) (value "+3V3") (footprint "")
     )
     (path "/00000000-0000-0000-0000-00005d87f278"
-      (reference "#PWR0129") (unit 1)
+      (reference "#PWR0129") (unit 1) (value "GND") (footprint "")
     )
     (path "/00000000-0000-0000-0000-00005d8835af"
-      (reference "#PWR0131") (unit 1)
+      (reference "#PWR0131") (unit 1) (value "GND") (footprint "")
     )
     (path "/00000000-0000-0000-0000-00005d8ced25"
-      (reference "#PWR0132") (unit 1)
+      (reference "#PWR0132") (unit 1) (value "GND") (footprint "")
     )
     (path "/00000000-0000-0000-0000-00005d92311f"
-      (reference "#PWR0133") (unit 1)
+      (reference "#PWR0133") (unit 1) (value "GND") (footprint "")
     )
     (path "/00000000-0000-0000-0000-00005e1e0966"
-      (reference "#PWR0134") (unit 1)
+      (reference "#PWR0134") (unit 1) (value "+3V3") (footprint "")
     )
     (path "/00000000-0000-0000-0000-00005d88bd34"
-      (reference "#PWR0135") (unit 1)
+      (reference "#PWR0135") (unit 1) (value "GND") (footprint "")
     )
     (path "/51defa6e-05cd-440b-bc49-b503905062d0"
-      (reference "C1") (unit 1)
+      (reference "C1") (unit 1) (value "xx") (footprint "Capacitor_SMD:C_0603_1608Metric")
     )
     (path "/3ed324a5-ba4b-472b-b5b6-cd9992175b68"
-      (reference "C2") (unit 1)
+      (reference "C2") (unit 1) (value "47p") (footprint "Capacitor_SMD:C_0603_1608Metric")
     )
     (path "/00000000-0000-0000-0000-00005d87ee5c"
-      (reference "C3") (unit 1)
+      (reference "C3") (unit 1) (value "1u") (footprint "Capacitor_SMD:C_0603_1608Metric")
     )
     (path "/c2b7e898-78e5-4e77-85a9-5cac2e3a84e8"
-      (reference "C4") (unit 1)
+      (reference "C4") (unit 1) (value "xx") (footprint "Capacitor_SMD:C_0603_1608Metric")
     )
     (path "/00000000-0000-0000-0000-00005d83763c"
-      (reference "C6") (unit 1)
+      (reference "C6") (unit 1) (value "1u") (footprint "Capacitor_SMD:C_0603_1608Metric")
     )
     (path "/00000000-0000-0000-0000-00005d8ced13"
-      (reference "C13") (unit 1)
+      (reference "C13") (unit 1) (value "1u") (footprint "Capacitor_SMD:C_0603_1608Metric")
     )
     (path "/00000000-0000-0000-0000-00005d88984c"
-      (reference "C14") (unit 1)
+      (reference "C14") (unit 1) (value "1u") (footprint "Capacitor_SMD:C_0603_1608Metric")
     )
     (path "/00000000-0000-0000-0000-00005d880d1f"
-      (reference "D1") (unit 1)
+      (reference "D1") (unit 1) (value "5V6") (footprint "miceuz-lib:SC89")
     )
     (path "/00000000-0000-0000-0000-00005daf9c1b"
-      (reference "D4") (unit 1)
+      (reference "D4") (unit 1) (value "5V6") (footprint "miceuz-lib:SC89")
     )
     (path "/00000000-0000-0000-0000-00005d88b507"
-      (reference "D6") (unit 1)
+      (reference "D6") (unit 1) (value "LED") (footprint "LED_SMD:LED_0603_1608Metric")
     )
     (path "/00000000-0000-0000-0000-00005d897a25"
-      (reference "D7") (unit 1)
+      (reference "D7") (unit 1) (value "LED") (footprint "LED_SMD:LED_0603_1608Metric")
     )
     (path "/00000000-0000-0000-0000-00005d88b948"
-      (reference "D8") (unit 1)
+      (reference "D8") (unit 1) (value "LED") (footprint "LED_SMD:LED_0603_1608Metric")
     )
     (path "/7c7e9130-4dc3-4b70-b688-e235423fbc11"
-      (reference "D10") (unit 1)
+      (reference "D10") (unit 1) (value "D_TVS") (footprint "")
     )
     (path "/00000000-0000-0000-0000-00005e2b5a32"
-      (reference "FID1") (unit 1)
+      (reference "FID1") (unit 1) (value "Fiducial") (footprint "Fiducials:Fiducial_1mm_Dia_2mm_Outer")
     )
     (path "/00000000-0000-0000-0000-00005e2b5bae"
-      (reference "FID2") (unit 1)
+      (reference "FID2") (unit 1) (value "Fiducial") (footprint "Fiducials:Fiducial_1mm_Dia_2mm_Outer")
     )
     (path "/00000000-0000-0000-0000-00005d92d1c4"
-      (reference "H1") (unit 1)
+      (reference "H1") (unit 1) (value "MountingHole") (footprint "Mounting_Holes:MountingHole_3.2mm_M3_DIN965")
     )
     (path "/00000000-0000-0000-0000-00005d92e86e"
-      (reference "H2") (unit 1)
+      (reference "H2") (unit 1) (value "MountingHole") (footprint "Mounting_Holes:MountingHole_3.2mm_M3_DIN965")
     )
     (path "/00000000-0000-0000-0000-00005d92d1f4"
-      (reference "H3") (unit 1)
+      (reference "H3") (unit 1) (value "MountingHole") (footprint "Mounting_Holes:MountingHole_3.2mm_M3_DIN965")
     )
     (path "/00000000-0000-0000-0000-00005d92d005"
-      (reference "H4") (unit 1)
+      (reference "H4") (unit 1) (value "MountingHole") (footprint "Mounting_Holes:MountingHole_3.2mm_M3_DIN965")
     )
     (path "/00000000-0000-0000-0000-00005d8230d5"
-      (reference "J1") (unit 1)
+      (reference "J1") (unit 1) (value "battery") (footprint "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MPT-2.54mm_2pol")
     )
     (path "/00000000-0000-0000-0000-00005d83a63a"
-      (reference "J2") (unit 1)
+      (reference "J2") (unit 1) (value "ANT") (footprint "miceuz-lib:SMA_6.35_EdgeMount")
     )
     (path "/00000000-0000-0000-0000-00005d84bc6f"
-      (reference "J3") (unit 1)
+      (reference "J3") (unit 1) (value "i2c") (footprint "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MPT-2.54mm_4pol")
     )
     (path "/00000000-0000-0000-0000-00005d82a501"
-      (reference "J4") (unit 1)
+      (reference "J4") (unit 1) (value "rs485") (footprint "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MPT-2.54mm_4pol")
     )
     (path "/00000000-0000-0000-0000-00005c0534ac"
-      (reference "J5") (unit 1)
+      (reference "J5") (unit 1) (value "SWD") (footprint "miceuz-lib:TC2030-MCP-NL")
     )
     (path "/c31c22dc-a233-4ff5-8534-c64800c918b7"
-      (reference "J6") (unit 1)
+      (reference "J6") (unit 1) (value "Conn_01x05_Female") (footprint "Pin_Headers:Pin_Header_Straight_1x05_Pitch2.54mm")
     )
     (path "/00000000-0000-0000-0000-00005cda92f9"
-      (reference "J9") (unit 1)
+      (reference "J9") (unit 1) (value "USB micro") (footprint "Connectors_USB:USB_Micro-B_Vertical_Molex-105133-0001")
     )
     (path "/00000000-0000-0000-0000-00005d87e85d"
-      (reference "R1") (unit 1)
+      (reference "R1") (unit 1) (value "1k") (footprint "Resistor_SMD:R_0603_1608Metric")
     )
     (path "/00000000-0000-0000-0000-00005d8ced02"
-      (reference "R11") (unit 1)
+      (reference "R11") (unit 1) (value "20k") (footprint "Resistor_SMD:R_0603_1608Metric")
     )
     (path "/00000000-0000-0000-0000-00005d8d1b0f"
-      (reference "R12") (unit 1)
+      (reference "R12") (unit 1) (value "10k") (footprint "Resistor_SMD:R_0603_1608Metric")
     )
     (path "/00000000-0000-0000-0000-00005d88d1f7"
-      (reference "R13") (unit 1)
+      (reference "R13") (unit 1) (value "1k") (footprint "Resistor_SMD:R_0603_1608Metric")
     )
     (path "/00000000-0000-0000-0000-00005d88dc75"
-      (reference "R14") (unit 1)
+      (reference "R14") (unit 1) (value "1k") (footprint "Resistor_SMD:R_0603_1608Metric")
     )
     (path "/00000000-0000-0000-0000-00005d88e64b"
-      (reference "R15") (unit 1)
+      (reference "R15") (unit 1) (value "1k") (footprint "Resistor_SMD:R_0603_1608Metric")
     )
     (path "/00000000-0000-0000-0000-00005e1e0948"
-      (reference "R25") (unit 1)
+      (reference "R25") (unit 1) (value "1k") (footprint "Resistor_SMD:R_0603_1608Metric")
     )
     (path "/00000000-0000-0000-0000-00005d8835bd"
-      (reference "SW1") (unit 1)
+      (reference "SW1") (unit 1) (value "SW_Test") (footprint "Button_Switch_SMD:SW_Push_1P1T_NO_6x6mm_H9.5mm")
     )
     (path "/00000000-0000-0000-0000-00005d87faa0"
-      (reference "SW2") (unit 1)
+      (reference "SW2") (unit 1) (value "SW_Reset") (footprint "Button_Switch_SMD:SW_Push_1P1T_NO_6x6mm_H9.5mm")
     )
     (path "/d0f1843f-1886-4f38-bec9-1782e1bec6d9"
-      (reference "U5") (unit 1)
+      (reference "U5") (unit 1) (value "RAK4260") (footprint "miceuz-lib:RAK4260-footprint_w_solder_paste")
     )
     (path "/f3725e36-b705-47bc-ba98-c818125707c8"
-      (reference "U5") (unit 2)
+      (reference "U5") (unit 2) (value "RAK4260") (footprint "miceuz-lib:RAK4260-footprint_w_solder_paste")
     )
     (path "/d387ca61-e91d-4549-8773-e6b636fdd212"
-      (reference "U5") (unit 3)
+      (reference "U5") (unit 3) (value "RAK4260") (footprint "miceuz-lib:RAK4260-footprint_w_solder_paste")
     )
     (path "/00000000-0000-0000-0000-00005d8236a8/00000000-0000-0000-0000-00005e21fe6a"
-      (reference "D2") (unit 1)
+      (reference "D2") (unit 1) (value "7.6V") (footprint "Diode_SMD:D_SOD-323")
     )
     (path "/00000000-0000-0000-0000-00005d8236a8/00000000-0000-0000-0000-00005d86d14c"
-      (reference "D3") (unit 1)
+      (reference "D3") (unit 1) (value "1N4148") (footprint "Diode_SMD:D_SOD-123")
     )
     (path "/00000000-0000-0000-0000-00005d8236a8/00000000-0000-0000-0000-00005dc183a7"
-      (reference "D5") (unit 1)
+      (reference "D5") (unit 1) (value "SMF11A") (footprint "Diode_SMD:D_SOD-123F")
     )
     (path "/00000000-0000-0000-0000-00005d8236a8/00000000-0000-0000-0000-00005dc1add3"
-      (reference "Q3") (unit 1)
+      (reference "Q3") (unit 1) (value "NX2301P") (footprint "Package_TO_SOT_SMD:SOT-23")
     )
     (path "/00000000-0000-0000-0000-00005d8236a8/00000000-0000-0000-0000-00005dc24989"
-      (reference "Q4") (unit 1)
+      (reference "Q4") (unit 1) (value "NX2301P") (footprint "Package_TO_SOT_SMD:SOT-23")
     )
     (path "/00000000-0000-0000-0000-00005d8236a8/00000000-0000-0000-0000-00005dc1d764"
-      (reference "R21") (unit 1)
+      (reference "R21") (unit 1) (value "1M") (footprint "Resistor_SMD:R_0603_1608Metric")
     )
     (path "/00000000-0000-0000-0000-00005d8236a8/00000000-0000-0000-0000-00005dc22cf0"
-      (reference "R24") (unit 1)
+      (reference "R24") (unit 1) (value "1M") (footprint "Resistor_SMD:R_0603_1608Metric")
     )
     (path "/00000000-0000-0000-0000-00005d8236a8/00000000-0000-0000-0000-00005dc19068"
-      (reference "TH1") (unit 1)
+      (reference "TH1") (unit 1) (value "Thermistor_PTC") (footprint "Fuse:Fuse_1206_3216Metric")
     )
     (path "/00000000-0000-0000-0000-00005d8260b7/00000000-0000-0000-0000-00005bd77a45"
-      (reference "C7") (unit 1)
+      (reference "C7") (unit 1) (value "4.7u") (footprint "Capacitor_SMD:C_0603_1608Metric")
     )
     (path "/00000000-0000-0000-0000-00005d8260b7/00000000-0000-0000-0000-00005d86d7bc"
-      (reference "C11") (unit 1)
+      (reference "C11") (unit 1) (value "4.7u") (footprint "Capacitor_SMD:C_0603_1608Metric")
     )
     (path "/00000000-0000-0000-0000-00005d8260b7/00000000-0000-0000-0000-00005d00435e"
-      (reference "C16") (unit 1)
+      (reference "C16") (unit 1) (value "4.7u") (footprint "Capacitor_SMD:C_0603_1608Metric")
     )
     (path "/00000000-0000-0000-0000-00005d8260b7/00000000-0000-0000-0000-00005d8f1c6a"
-      (reference "U4") (unit 1)
+      (reference "U4") (unit 1) (value "NCP718") (footprint "TO_SOT_Packages_SMD:SOT-23-5")
     )
     (path "/00000000-0000-0000-0000-00005d825820/00000000-0000-0000-0000-000054df0ccd"
-      (reference "#PWR018") (unit 1)
+      (reference "#PWR018") (unit 1) (value "GND") (footprint "")
     )
     (path "/00000000-0000-0000-0000-00005d825820/00000000-0000-0000-0000-000054df0c76"
-      (reference "C12") (unit 1)
+      (reference "C12") (unit 1) (value "1u") (footprint "Capacitor_SMD:C_0603_1608Metric")
     )
     (path "/00000000-0000-0000-0000-00005d825820/00000000-0000-0000-0000-00005d8c5f67"
-      (reference "Q1") (unit 1)
+      (reference "Q1") (unit 1) (value "NX2301P") (footprint "Package_TO_SOT_SMD:SOT-23")
     )
     (path "/00000000-0000-0000-0000-00005d825820/00000000-0000-0000-0000-00005c9ce926"
-      (reference "Q2") (unit 1)
+      (reference "Q2") (unit 1) (value "NTR4003") (footprint "Package_TO_SOT_SMD:SOT-23")
     )
     (path "/00000000-0000-0000-0000-00005d825820/00000000-0000-0000-0000-000058ff80b2"
-      (reference "R3") (unit 1)
+      (reference "R3") (unit 1) (value "1M") (footprint "Resistor_SMD:R_0603_1608Metric")
     )
     (path "/00000000-0000-0000-0000-00005d825820/00000000-0000-0000-0000-00005d8c5f68"
-      (reference "R8") (unit 1)
+      (reference "R8") (unit 1) (value "1M") (footprint "Resistor_SMD:R_0603_1608Metric")
     )
     (path "/00000000-0000-0000-0000-00005d825820/00000000-0000-0000-0000-000058fef0d0"
-      (reference "R9") (unit 1)
+      (reference "R9") (unit 1) (value "1M") (footprint "Resistor_SMD:R_0603_1608Metric")
     )
     (path "/00000000-0000-0000-0000-00005d825820/00000000-0000-0000-0000-00005dc0d0cd"
-      (reference "R10") (unit 1)
+      (reference "R10") (unit 1) (value "150") (footprint "Resistor_SMD:R_0603_1608Metric")
     )
     (path "/00000000-0000-0000-0000-00005d825820/00000000-0000-0000-0000-00005d8f7219"
-      (reference "R16") (unit 1)
+      (reference "R16") (unit 1) (value "1M") (footprint "Resistor_SMD:R_0603_1608Metric")
     )
     (path "/00000000-0000-0000-0000-00005d825820/00000000-0000-0000-0000-000054df0ada"
-      (reference "U1") (unit 1)
+      (reference "U1") (unit 1) (value "SN65HVD72") (footprint "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm")
     )
     (path "/00000000-0000-0000-0000-00005d84b44c/00000000-0000-0000-0000-00005daf890b"
-      (reference "#PWR0137") (unit 1)
+      (reference "#PWR0137") (unit 1) (value "GND") (footprint "")
     )
     (path "/00000000-0000-0000-0000-00005d84b44c/00000000-0000-0000-0000-00005cf95011"
-      (reference "D9") (unit 1)
+      (reference "D9") (unit 1) (value "5V6") (footprint "miceuz-lib:SC89")
     )
     (path "/00000000-0000-0000-0000-00005d84b44c/00000000-0000-0000-0000-000057fc85cd"
-      (reference "Q7") (unit 1)
+      (reference "Q7") (unit 1) (value "NX2301P") (footprint "Package_TO_SOT_SMD:SOT-23")
     )
     (path "/00000000-0000-0000-0000-00005d84b44c/00000000-0000-0000-0000-00005d8521b9"
-      (reference "R4") (unit 1)
+      (reference "R4") (unit 1) (value "1M") (footprint "Resistor_SMD:R_0603_1608Metric")
     )
     (path "/00000000-0000-0000-0000-00005d84b44c/00000000-0000-0000-0000-00005d853f04"
-      (reference "R5") (unit 1)
+      (reference "R5") (unit 1) (value "150") (footprint "Resistor_SMD:R_0603_1608Metric")
     )
     (path "/00000000-0000-0000-0000-00005d84b44c/00000000-0000-0000-0000-00005d84f22a"
-      (reference "R6") (unit 1)
+      (reference "R6") (unit 1) (value "4.7k") (footprint "Resistor_SMD:R_0603_1608Metric")
     )
     (path "/00000000-0000-0000-0000-00005d84b44c/00000000-0000-0000-0000-00005d84eabd"
-      (reference "R7") (unit 1)
+      (reference "R7") (unit 1) (value "4.7k") (footprint "Resistor_SMD:R_0603_1608Metric")
     )
   )
 )

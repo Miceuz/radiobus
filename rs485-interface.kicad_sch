@@ -1,11 +1,11 @@
-(kicad_sch (version 20200512) (host eeschema "5.99.0-unknown-eae0c14~88~ubuntu18.04.1")
+(kicad_sch (version 20200828) (generator eeschema)
 
-  (page 1 5)
+  (page 4 5)
 
   (paper "A4")
 
   (lib_symbols
-    (symbol "Device:C" (pin_numbers hide) (pin_names (offset 0.254))
+    (symbol "Device:C" (pin_numbers hide) (pin_names (offset 0.254)) (in_bom yes) (on_board yes)
       (property "Reference" "C" (id 0) (at 0.635 2.54 0)
         (effects (font (size 1.27 1.27)) (justify left))
       )
@@ -29,11 +29,17 @@
       )
       (symbol "C_0_1"
         (polyline
-          (pts (xy -2.032 -0.762) (xy 2.032 -0.762))
+          (pts
+            (xy -2.032 -0.762)
+            (xy 2.032 -0.762)
+          )
           (stroke (width 0.508)) (fill (type none))
         )
         (polyline
-          (pts (xy -2.032 0.762) (xy 2.032 0.762))
+          (pts
+            (xy -2.032 0.762)
+            (xy 2.032 0.762)
+          )
           (stroke (width 0.508)) (fill (type none))
         )
       )
@@ -48,7 +54,7 @@
         )
       )
     )
-    (symbol "Device:Q_NMOS_GSD" (pin_names (offset 0) hide)
+    (symbol "Device:Q_NMOS_GSD" (pin_names (offset 0) hide) (in_bom yes) (on_board yes)
       (property "Reference" "Q" (id 0) (at 5.08 1.27 0)
         (effects (font (size 1.27 1.27)) (justify left))
       )
@@ -72,47 +78,89 @@
         (circle (center 2.54 -1.778) (radius 0.254) (stroke (width 0)) (fill (type outline)))
         (circle (center 2.54 1.778) (radius 0.254) (stroke (width 0)) (fill (type outline)))
         (polyline
-          (pts (xy 0.254 0) (xy -2.54 0))
+          (pts
+            (xy 0.254 0)
+            (xy -2.54 0)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 0.254 1.905) (xy 0.254 -1.905))
+          (pts
+            (xy 0.254 1.905)
+            (xy 0.254 -1.905)
+          )
           (stroke (width 0.254)) (fill (type none))
         )
         (polyline
-          (pts (xy 0.762 -1.27) (xy 0.762 -2.286))
+          (pts
+            (xy 0.762 -1.27)
+            (xy 0.762 -2.286)
+          )
           (stroke (width 0.254)) (fill (type none))
         )
         (polyline
-          (pts (xy 0.762 0.508) (xy 0.762 -0.508))
+          (pts
+            (xy 0.762 0.508)
+            (xy 0.762 -0.508)
+          )
           (stroke (width 0.254)) (fill (type none))
         )
         (polyline
-          (pts (xy 0.762 2.286) (xy 0.762 1.27))
+          (pts
+            (xy 0.762 2.286)
+            (xy 0.762 1.27)
+          )
           (stroke (width 0.254)) (fill (type none))
         )
         (polyline
-          (pts (xy 2.54 2.54) (xy 2.54 1.778))
+          (pts
+            (xy 2.54 2.54)
+            (xy 2.54 1.778)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 2.54 -2.54) (xy 2.54 0) (xy 0.762 0))
+          (pts
+            (xy 2.54 -2.54)
+            (xy 2.54 0)
+            (xy 0.762 0)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 0.762 -1.778) (xy 3.302 -1.778) (xy 3.302 1.778) (xy 0.762 1.778))
+          (pts
+            (xy 0.762 -1.778)
+            (xy 3.302 -1.778)
+            (xy 3.302 1.778)
+            (xy 0.762 1.778)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 1.016 0) (xy 2.032 0.381) (xy 2.032 -0.381) (xy 1.016 0))
+          (pts
+            (xy 1.016 0)
+            (xy 2.032 0.381)
+            (xy 2.032 -0.381)
+            (xy 1.016 0)
+          )
           (stroke (width 0)) (fill (type outline))
         )
         (polyline
-          (pts (xy 2.794 0.508) (xy 2.921 0.381) (xy 3.683 0.381) (xy 3.81 0.254))
+          (pts
+            (xy 2.794 0.508)
+            (xy 2.921 0.381)
+            (xy 3.683 0.381)
+            (xy 3.81 0.254)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 3.302 0.381) (xy 2.921 -0.254) (xy 3.683 -0.254) (xy 3.302 0.381))
+          (pts
+            (xy 3.302 0.381)
+            (xy 2.921 -0.254)
+            (xy 3.683 -0.254)
+            (xy 3.302 0.381)
+          )
           (stroke (width 0)) (fill (type none))
         )
       )
@@ -131,7 +179,7 @@
         )
       )
     )
-    (symbol "Device:Q_PMOS_GSD" (pin_names (offset 0) hide)
+    (symbol "Device:Q_PMOS_GSD" (pin_names (offset 0) hide) (in_bom yes) (on_board yes)
       (property "Reference" "Q" (id 0) (at 5.08 1.27 0)
         (effects (font (size 1.27 1.27)) (justify left))
       )
@@ -155,47 +203,89 @@
         (circle (center 2.54 -1.778) (radius 0.254) (stroke (width 0)) (fill (type outline)))
         (circle (center 2.54 1.778) (radius 0.254) (stroke (width 0)) (fill (type outline)))
         (polyline
-          (pts (xy 0.254 0) (xy -2.54 0))
+          (pts
+            (xy 0.254 0)
+            (xy -2.54 0)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 0.254 1.905) (xy 0.254 -1.905))
+          (pts
+            (xy 0.254 1.905)
+            (xy 0.254 -1.905)
+          )
           (stroke (width 0.254)) (fill (type none))
         )
         (polyline
-          (pts (xy 0.762 -1.27) (xy 0.762 -2.286))
+          (pts
+            (xy 0.762 -1.27)
+            (xy 0.762 -2.286)
+          )
           (stroke (width 0.254)) (fill (type none))
         )
         (polyline
-          (pts (xy 0.762 0.508) (xy 0.762 -0.508))
+          (pts
+            (xy 0.762 0.508)
+            (xy 0.762 -0.508)
+          )
           (stroke (width 0.254)) (fill (type none))
         )
         (polyline
-          (pts (xy 0.762 2.286) (xy 0.762 1.27))
+          (pts
+            (xy 0.762 2.286)
+            (xy 0.762 1.27)
+          )
           (stroke (width 0.254)) (fill (type none))
         )
         (polyline
-          (pts (xy 2.54 2.54) (xy 2.54 1.778))
+          (pts
+            (xy 2.54 2.54)
+            (xy 2.54 1.778)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 2.54 -2.54) (xy 2.54 0) (xy 0.762 0))
+          (pts
+            (xy 2.54 -2.54)
+            (xy 2.54 0)
+            (xy 0.762 0)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 0.762 1.778) (xy 3.302 1.778) (xy 3.302 -1.778) (xy 0.762 -1.778))
+          (pts
+            (xy 0.762 1.778)
+            (xy 3.302 1.778)
+            (xy 3.302 -1.778)
+            (xy 0.762 -1.778)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 2.286 0) (xy 1.27 0.381) (xy 1.27 -0.381) (xy 2.286 0))
+          (pts
+            (xy 2.286 0)
+            (xy 1.27 0.381)
+            (xy 1.27 -0.381)
+            (xy 2.286 0)
+          )
           (stroke (width 0)) (fill (type outline))
         )
         (polyline
-          (pts (xy 2.794 -0.508) (xy 2.921 -0.381) (xy 3.683 -0.381) (xy 3.81 -0.254))
+          (pts
+            (xy 2.794 -0.508)
+            (xy 2.921 -0.381)
+            (xy 3.683 -0.381)
+            (xy 3.81 -0.254)
+          )
           (stroke (width 0)) (fill (type none))
         )
         (polyline
-          (pts (xy 3.302 -0.381) (xy 2.921 0.254) (xy 3.683 0.254) (xy 3.302 -0.381))
+          (pts
+            (xy 3.302 -0.381)
+            (xy 2.921 0.254)
+            (xy 3.683 0.254)
+            (xy 3.302 -0.381)
+          )
           (stroke (width 0)) (fill (type none))
         )
       )
@@ -214,7 +304,7 @@
         )
       )
     )
-    (symbol "Device:R" (pin_numbers hide) (pin_names (offset 0))
+    (symbol "Device:R" (pin_numbers hide) (pin_names (offset 0)) (in_bom yes) (on_board yes)
       (property "Reference" "R" (id 0) (at 2.032 0 90)
         (effects (font (size 1.27 1.27)))
       )
@@ -252,7 +342,7 @@
         )
       )
     )
-    (symbol "miceuz:SN65HVD"
+    (symbol "miceuz:SN65HVD" (in_bom yes) (on_board yes)
       (property "Reference" "U" (id 0) (at -7.62 8.89 0)
         (effects (font (size 1.27 1.27)) (justify left))
       )
@@ -308,7 +398,7 @@
         )
       )
     )
-    (symbol "power:GND" (power) (pin_names (offset 0))
+    (symbol "power:GND" (power) (pin_names (offset 0)) (in_bom yes) (on_board yes)
       (property "Reference" "#PWR" (id 0) (at 0 -6.35 0)
         (effects (font (size 1.27 1.27)) hide)
       )
@@ -329,8 +419,13 @@
       )
       (symbol "GND_0_1"
         (polyline
-          (pts (xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54)
-               (xy -1.27 -1.27) (xy 0 -1.27)
+          (pts
+            (xy 0 0)
+            (xy 0 -1.27)
+            (xy 1.27 -1.27)
+            (xy 0 -2.54)
+            (xy -1.27 -1.27)
+            (xy 0 -1.27)
           )
           (stroke (width 0)) (fill (type none))
         )
@@ -344,10 +439,10 @@
     )
   )
 
-  (junction (at 46.99 31.75))
-  (junction (at 54.61 39.37))
-  (junction (at 54.61 60.325))
-  (junction (at 95.885 43.18))
+  (junction (at 46.99 31.75) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 54.61 39.37) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 54.61 60.325) (diameter 1.016) (color 0 0 0 0))
+  (junction (at 95.885 43.18) (diameter 1.016) (color 0 0 0 0))
 
   (wire (pts (xy 39.37 60.325) (xy 54.61 60.325))
     (stroke (width 0) (type solid) (color 0 0 0 0))
@@ -452,6 +547,7 @@
   )
 
   (symbol (lib_id "power:GND") (at 102.235 39.37 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-000054df0ccd")
     (property "Reference" "#PWR018" (id 0) (at 102.235 45.72 0)
       (effects (font (size 1.524 1.524)) hide)
@@ -468,6 +564,7 @@
   )
 
   (symbol (lib_id "Device:R") (at 39.37 56.515 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d8f7219")
     (property "Reference" "R16" (id 0) (at 37.6174 57.6834 0)
       (effects (font (size 1.27 1.27)) (justify right))
@@ -484,6 +581,7 @@
   )
 
   (symbol (lib_id "Device:R") (at 43.18 52.705 270) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005dc0d0cd")
     (property "Reference" "R10" (id 0) (at 43.18 47.4472 90))
     (property "Value" "150" (id 1) (at 43.18 49.7586 90))
@@ -496,6 +594,7 @@
   )
 
   (symbol (lib_id "Device:R") (at 46.99 35.56 0) (mirror x) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d8c5f68")
     (property "Reference" "R8" (id 0) (at 45.2374 34.3916 0)
       (effects (font (size 1.27 1.27)) (justify right))
@@ -512,6 +611,7 @@
   )
 
   (symbol (lib_id "Device:R") (at 75.565 46.99 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-000058ff80b2")
     (property "Reference" "R3" (id 0) (at 77.597 46.99 90))
     (property "Value" "1M" (id 1) (at 75.7428 46.9646 90))
@@ -527,6 +627,7 @@
   )
 
   (symbol (lib_id "Device:R") (at 80.645 69.85 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-000058fef0d0")
     (property "Reference" "R9" (id 0) (at 82.677 69.85 90))
     (property "Value" "1M" (id 1) (at 80.8228 69.8246 90))
@@ -542,6 +643,7 @@
   )
 
   (symbol (lib_id "Device:C") (at 102.235 35.56 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-000054df0c76")
     (property "Reference" "C12" (id 0) (at 103.505 33.02 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -561,11 +663,12 @@
   )
 
   (symbol (lib_id "Device:Q_NMOS_GSD") (at 52.07 52.705 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005c9ce926")
     (property "Reference" "Q2" (id 0) (at 57.3024 52.705 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "Q_NMOS_GSD" (id 1) (at 57.3024 53.848 0)
+    (property "Value" "NTR4003" (id 1) (at 57.3024 53.848 0)
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
     (property "Footprint" "Package_TO_SOT_SMD:SOT-23" (id 2) (at 57.15 50.165 0)
@@ -583,9 +686,10 @@
   )
 
   (symbol (lib_id "Device:Q_PMOS_GSD") (at 54.61 34.29 270) (mirror x) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-00005d8c5f67")
     (property "Reference" "Q1" (id 0) (at 54.61 29.21 90))
-    (property "Value" "Q_PMOS_GSD" (id 1) (at 54.61 28.2702 90)
+    (property "Value" "NX2301P" (id 1) (at 54.61 28.2702 90)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Footprint" "Package_TO_SOT_SMD:SOT-23" (id 2) (at 57.15 29.21 0)
@@ -609,6 +713,7 @@
   )
 
   (symbol (lib_id "miceuz:SN65HVD") (at 95.885 58.42 0) (unit 1)
+    (in_bom yes) (on_board yes)
     (uuid "00000000-0000-0000-0000-000054df0ada")
     (property "Reference" "U1" (id 0) (at 88.265 49.53 0)
       (effects (font (size 1.27 1.27)) (justify left))
