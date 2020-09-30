@@ -119,12 +119,7 @@ core but not used. */
          GCLK_GENCTRL_GENEN);
     syncClocks();
 
-    GCLK->PCHCTRL[GCM_ADC].bit.CHEN = 0;
-    while (GCLK->PCHCTRL[GCM_ADC].bit.CHEN == 1)
-      ;
-    ADC->CTRLA.bit.ENABLE = 0;
-    while (ADC->SYNCBUSY.bit.ENABLE)
-      ;
+    wakeupAdc();
   };
 
   // void set_backup(int n_values, ...) {
@@ -158,11 +153,11 @@ private:
   uint32_t started = 0;
 
   void sleepAdc() {
+    ADC->CTRLA.bit.ENABLE = 0;
+
     GCLK->PCHCTRL[GCM_ADC].bit.CHEN = 0;
     while (GCLK->PCHCTRL[GCM_ADC].bit.CHEN == 1)
       ;
-    ADC->CTRLA.bit.ENABLE = 0;
-
     // Errata: 15463
     // In Standby Sleep mode when the ADC is in free-running mode
     // (CTRLC.FREERUN=1) and the RUNSTDBY bit is set to 0 (CTRLA.RUNSTDBY=0),
@@ -173,7 +168,16 @@ private:
     ADC->CTRLC.bit.FREERUN = 0;
     // while (ADC->SYNCBUSY.bit.CTRLC)
     //   ;
-  }
+  };
+
+  void wakeupAdc() {
+    GCLK->PCHCTRL[GCM_ADC].bit.CHEN = 1;
+    while (GCLK->PCHCTRL[GCM_ADC].bit.CHEN == 0)
+      ;
+    ADC->CTRLA.bit.ENABLE = 1;
+    while (ADC->SYNCBUSY.bit.ENABLE)
+      ;
+  };
 
   static inline void setMode(const enum sleep_mode_e sleep_mode) {
     PM->SLEEPCFG.reg = static_cast<uint8_t>(sleep_mode);
