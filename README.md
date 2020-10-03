@@ -1,7 +1,7 @@
-# LoRa - RS485 bridge
+# Radiobus - RS485, I2C, SPI, Serial bridge to LoRaWAN network
 
-This is a board that is specifically designed to easily hook up RS485 and I2C sensors to LoRaWAN network.
-![](lora-rs485-bridge.png)
+This is a low power high reliability board that is specifically designed to easily hook up sensors and actuators to LoRaWAN network.
+![Radiobus](pics/top.jpg)
 
 ## Features
 
