@@ -52,21 +52,11 @@ A working example firmware source code is provided. The firmware takes care of s
 
 Example firmware is can be compiled using [PlatformIO](https://platformio.org/) environment. Type ```pio run -t upload``` in the example directory to compile and upload the code. 
 
-
-### Programming environment setup
-
-A tutorial provided by [Adafruit for Feather M0 boards](https://learn.adafruit.com/adafruit-feather-m0-basic-proto/setup) can be followed for the programming environment setup. In a nutshell:
-
- * Use Arduino IDE version 1.8 or higher
- * Add this line to **Additional Boards Manager URLs** in preferences dialog: `https://adafruit.github.io/arduino-board-index/package_adafruit_index.json`
- * In the **Boards Manager** add support for **Arduino SAMD Boards** version 1.6.11 or later
- * In the **Boards Manager** add support for **Adafruit SAMD Boards**
- * In **Tools->Board** menu choose **Feather M0**; that's it, you are ready to go
+The code base is based on [this fork of MattairTech framwork](https://github.com/Miceuz/framework-arduino-samr-catnip) 
 
 ### Libraries used
 
- * [arduino-lmic](https://github.com/mcci-catena/arduino-lmic) -- you can add it via Arduino Library manager, but cloning the git repo is strongly recommended to get all the latest fixes
- * [RTCZero](https://github.com/arduino-libraries/RTCZero) -- can be installed from Arduino Library manager
+ * [arduino-lmic](https://github.com/mcci-catena/arduino-lmic) -- cloning the git repo is strongly recommended to get all the latest fixes
 
 ## Indication and UI
 
