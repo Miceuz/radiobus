@@ -8,7 +8,7 @@ This is a low power high reliability board that is specifically designed to easi
 
 * Arduino compatible (Adafruit Feather M0 based)
 * Low power:
-  * Sleep current - 15uA
+  * Sleep current - 10uA
   * Message cost @ SF7 - 38mC (~190k messages from 4xAA battery)
   * Power switching for external I2C and RS485 sensors
 * ESD protection
@@ -50,7 +50,7 @@ Nevertheless, a simple wire works just fine, I was able to transmit messages up 
 
 A working example firmware source code is provided. The firmware takes care of setting up radio module, sleep, querying sensors and formatting payload and transmission. 
 
-Example firmware is can be compiled using [PlatformIO](https://platformio.org/) environment. Type ```pio run -t upload``` in the example directory to compile and upload the code. 
+Example firmware can be compiled using [PlatformIO](https://platformio.org/) environment. Type ```pio run -t upload``` in the example directory to compile and upload the code. 
 
 The code base is based on [this fork of MattairTech framwork](https://github.com/Miceuz/framework-arduino-samr-catnip) 
 
