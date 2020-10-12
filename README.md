@@ -6,7 +6,7 @@ This is a low power high reliability board that is specifically designed to easi
 
 ## Features
 
-* Arduino compatible (Adafruit Feather M0 based)
+* Arduino compatible
 * Low power:
   * Sleep current - 10uA
   * Message cost @ SF7 - 38mC (~190k messages from 4xAA battery)
