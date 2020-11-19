@@ -12,6 +12,7 @@
 #ifndef _hal_hal_h_
 #define _hal_hal_h_
 
+#include "../lmic/oslmic_types.h"
 #include "arduino_lmic_hal_configuration.h"
 
 // for compatbility reasons, we need to disclose the configuration
