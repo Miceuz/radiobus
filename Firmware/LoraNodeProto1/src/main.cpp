@@ -1,11 +1,26 @@
 #include "SAMLSleep.h"
+#include "pins.h"
 #include "radio.h"
 #include "wiring_private.h"
 #include <Arduino.h>
 #include <SPI.h>
 
-SAMLSleep sleep;
 void onTestButtonPressed();
+void read_sensors();
+uint8_t setupPayload();
+
+SAMLSleep sleep;
+
+uint16_t batteryMillivolts = 0;
+
+// payload to send to TTN gateway
+static uint8_t payload[5];
+
+// Schedule TX every this many seconds (might become longer due to duty
+// cycle limitations).
+const unsigned TX_INTERVAL_S = 5;
+
+bool loraTxInProgress = false;
 
 void pinsToSleep() {
   pinPeripheral(0, PIO_OUTPUT);
@@ -67,15 +82,34 @@ void pinsToSleep() {
   digitalWrite(PIN_RS485_RE, LOW);
   digitalWrite(PIN_RS485_DE, LOW);
   digitalWrite(PIN_RS485_EN, LOW);
-  digitalWrite(PIN_I2C_EN, LOW);
+  digitalWrite(PIN_I2C_EN, HIGH);
   digitalWrite(PIN_SERIAL1_RX, LOW);
   digitalWrite(PIN_SERIAL1_TX, LOW);
   digitalWrite(PIN_WIRE_SCL, LOW);
   digitalWrite(PIN_WIRE_SDA, LOW);
-  attachInterrupt(PIN_TEST_BUTTON, onTestButtonPressed, FALLING);
+  // attachInterrupt(PIN_TEST_BUTTON, onTestButtonPressed, FALLING);
 }
 
+/**
+ *
+ * TODO:
+ *  X re-test power consumption during sleep
+ *  X - evaluate sleep code from
+ * https://github.com/ElectronicCats/ArduinoLowPower/commit/31fc4f41372fd70ea3777b821a073bca0146c941
+ * Somehow ElectronicCats code results in 800uA sleep current vs 8uA with our
+ * sleep function
+ *  X - put together POC Firmware back
+ *  - Use the latest LMIC library
+ *  - Configure LMIC to use PIN_RADIO_BAND_SEL inside the library
+ *  - Try putting LoRa radio to sleep without losing state of LMIC
+ *  - Pull in code for key setup via SerialUSB
+ *  - Pull in code for downlink messages
+ *
+ * */
+
 void setup() {
+  Serial.begin(115200);
+
   pinMode(PIN_RADIO_SWITCH_PWR, OUTPUT);
   pinMode(PIN_RADIO_TXCO_PWR, OUTPUT);
   pinMode(PIN_RADIO_BAND_SEL, OUTPUT);
@@ -84,16 +118,6 @@ void setup() {
   digitalWrite(PIN_RADIO_TXCO_PWR, HIGH);
 
   lora_init();
-  LMIC_shutdown();
-  delay(100);
-
-  digitalWrite(PIN_RADIO_SWITCH_PWR, LOW);
-  digitalWrite(PIN_RADIO_TXCO_PWR, LOW);
-  digitalWrite(PIN_RADIO_BAND_SEL, LOW);
-
-  delay(100);
-
-  pinsToSleep();
 
   pinMode(PIN_LED_WAN, OUTPUT);
   pinMode(PIN_LED_SENS, OUTPUT);
@@ -107,50 +131,73 @@ void setup() {
   digitalWrite(PIN_LED_BATT, LOW);
   digitalWrite(PIN_LED_SENS, LOW);
 
-  // delay(500);
-  // USB->DEVICE.CTRLA.bit.ENABLE = 0;
-  //   GCLK->GENCTRL[GENERIC_CLOCK_GENERATOR_TIMERS].bit.GENEN = 0;
-  GCLK->GENCTRL[GENERIC_CLOCK_GENERATOR_48MHz].bit.GENEN = 0;
-  // #define GENERIC_CLOCK_GENERATOR_OSCULP32K (2u)
-  //   GCLK->GENCTRL[GENERIC_CLOCK_GENERATOR_OSCULP32K].bit.GENEN = 0;
-  // disabling this causes higher power consumption
-  // GCLK->GENCTRL[GENERIC_CLOCK_GENERATOR_OSC_HS].bit.GENEN = 0;
-  // OSCCTRL->OSC16MCTRL.bit.ENABLE = 0;
-
-  // MCLK->APBDMASK.reg &= ~MCLK_APBDMASK_ADC;
-
-  // delay(500);
-
-  // Serial.begin(9600);
+  read_sensors();
 }
 
-// // 0x10810228 - ATSAMR34J18B
-// void loop() {
-//   Serial.println(DSU->DID.reg, HEX);
+void read_sensors() {
+  digitalWrite(PIN_LED_SENS, HIGH);
+  //    i2cEnable();
+  rs485Enable();
+  delay(30); // allow voltage to stabilize
 
-//   Serial.print("processor: ");
-//   Serial.println(DSU->DID.bit.PROCESSOR, HEX);
-//   Serial.print("family: ");
-//   Serial.println(DSU->DID.bit.FAMILY, HEX);
-//   Serial.print("series: ");
-//   Serial.println(DSU->DID.bit.SERIES, HEX);
-//   Serial.print("die: ");
-//   Serial.println(DSU->DID.bit.DIE, HEX);
-//   Serial.print("revision: ");
-//   Serial.println(DSU->DID.bit.REVISION, HEX);
-//   Serial.print("devsel: ");
-//   Serial.println(DSU->DID.bit.DEVSEL, HEX);
-//   delay(1000);
-// }
+  batteryMillivolts = analogRead(A0) * 3 * 3300 / 1024;
+
+  //    i2cDisable();
+  rs485Disable();
+  digitalWrite(PIN_LED_SENS, LOW);
+}
+
+uint8_t setupPayload() {
+  payload[0] = batteryMillivolts & 0x00FF;
+  payload[1] = (batteryMillivolts >> 8) & 0x00FF;
+  return 2;
+}
+
+void lora_sleep() {
+  lora_save_state();
+  LMIC_shutdown();
+
+  digitalWrite(PIN_RADIO_SWITCH_PWR, LOW);
+  digitalWrite(PIN_RADIO_TXCO_PWR, LOW);
+  digitalWrite(PIN_RADIO_BAND_SEL, LOW);
+}
+
+void lora_wakeup() {
+  digitalWrite(PIN_RADIO_SWITCH_PWR, HIGH);
+  digitalWrite(PIN_RADIO_TXCO_PWR, HIGH);
+
+  lora_init();
+  lora_restore_state();
+  lora_adjust_time();
+}
+
+void go_to_sleep() {
+  pinsToSleep();
+  sleep.sleep(TX_INTERVAL_S, SAMLSleep::sleep_mode_e::SLEEP_MODE_STANDBY);
+}
+
+void on_tx_start() { digitalWrite(LED_WAN, HIGH); }
+
+void on_tx_complete() {
+  digitalWrite(LED_WAN, LOW);
+  loraTxInProgress = false;
+  lora_sleep();
+}
+
+void lora_send_payload() {
+  lora_wakeup();
+  uint8_t payload_length = setupPayload();
+  lora_send(payload, payload_length);
+  loraTxInProgress = true;
+  while (loraTxInProgress) {
+    os_runloop_once();
+  }
+}
 
 void loop() {
-  delay(100);
-  // digitalWrite(PIN_LED_SENS, LOW);
-  pinsToSleep();
-  sleep.sleep(2, SAMLSleep::sleep_mode_e::SLEEP_MODE_STANDBY);
-  // digitalWrite(PIN_LED_BATT, HIGH);
-  delay(10);
-  // digitalWrite(PIN_LED_BATT, LOW);
+  read_sensors();
+  lora_send_payload();
+  go_to_sleep();
 }
 
 void RTC_Handler() { RTC->MODE0.INTFLAG.reg = RTC_MODE0_INTFLAG_MASK; }
