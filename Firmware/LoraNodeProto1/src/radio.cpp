@@ -52,6 +52,10 @@ const lmic_pinmap lmic_pins = {
     .spi_freq = 8000000,
 };
 
+lmic_t lmic_state;
+void lora_save_state() { memcpy(&lmic_state, &LMIC, sizeof(lmic_t)); }
+void lora_restore_state() { memcpy(&LMIC, &lmic_state, sizeof(lmic_t)); }
+
 void lora_init() {
   // LMIC init.
   os_init();
