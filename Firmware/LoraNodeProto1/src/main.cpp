@@ -101,6 +101,7 @@ void setup() {
   digitalWrite(PIN_RADIO_TXCO_PWR, HIGH);
 
   lora_init();
+  lora_save_state();
 
   pinMode(PIN_LED_WAN, OUTPUT);
   pinMode(PIN_LED_SENS, OUTPUT);

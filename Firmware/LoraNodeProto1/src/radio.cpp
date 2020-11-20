@@ -101,7 +101,7 @@ void lora_init() {
   LMIC.dn2Dr = DR_SF9;
 
   // Set data rate and transmit power for uplink
-  LMIC_setDrTxpow(DR_SF11, 27);
+  LMIC_setDrTxpow(DR_SF7B, 27);
 }
 
 void lora_send(uint8_t *payload, uint8_t size) {
@@ -224,6 +224,8 @@ void onEvent(ev_t ev) {
   default:
     //            Serial.print(F("Unknown event: "));
     //            Serial.println((unsigned) ev);
+    // lora_init();
+    // on_tx_complete(LMIC.dataLen, LMIC.dataBeg, LMIC.frame);
     break;
   }
 }
