@@ -1,4 +1,5 @@
 #include "radio.h"
+#include "hal/hal.h"
 #include "pins.h"
 #include <Arduino.h>
 
@@ -43,11 +44,11 @@ static const u1_t NWKSKEY[16] = {0x80, 0x42, 0xD6, 0x39, 0xB3, 0xDC,
                                  0x94, 0xC1, 0x49, 0x6F};
 
 const lmic_pinmap lmic_pins = {
-    .nss = RFM_NSS, // Internal connected
-    .rxtx = LMIC_UNUSED_PIN,
-    .rst = RFM_RST, // Internal connected
+    .nss = RFM_NSS,
+    .rxtx = PIN_RADIO_BAND_SEL,
+    .rst = RFM_RST,
     .dio = {RFM_IRQ, RFM_DIO01, LMIC_UNUSED_PIN},
-    .rxtx_rx_active = 0,
+    .rxtx_rx_active = 1,
     .rssi_cal = 0,
     .spi_freq = 8000000,
 };
@@ -187,7 +188,7 @@ void onEvent(ev_t ev) {
         Serial.println(F(" bytes of payload"));
       }
 
-    on_tx_complete();
+    on_tx_complete(LMIC.dataLen, LMIC.dataBeg, LMIC.frame);
 
     break;
   case EV_LOST_TSYNC:
@@ -216,17 +217,13 @@ void onEvent(ev_t ev) {
   */
   case EV_TXSTART:
     //            Serial.println(F("EV_TXSTART"));
-    digitalWrite(PIN_RADIO_BAND_SEL, LOW);
     on_tx_start();
     break;
   case EV_RXSTART:
-    digitalWrite(PIN_RADIO_BAND_SEL, HIGH);
     break;
   default:
     //            Serial.print(F("Unknown event: "));
     //            Serial.println((unsigned) ev);
-    lora_init();
-    on_tx_complete();
     break;
   }
 }

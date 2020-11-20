@@ -87,7 +87,7 @@ void pinsToSleep() {
   digitalWrite(PIN_SERIAL1_TX, LOW);
   digitalWrite(PIN_WIRE_SCL, LOW);
   digitalWrite(PIN_WIRE_SDA, LOW);
-  // attachInterrupt(PIN_TEST_BUTTON, onTestButtonPressed, FALLING);
+  attachInterrupt(PIN_TEST_BUTTON, onTestButtonPressed, FALLING);
 }
 
 /**
@@ -99,9 +99,9 @@ void pinsToSleep() {
  * Somehow ElectronicCats code results in 800uA sleep current vs 8uA with our
  * sleep function
  *  X - put together POC Firmware back
- *  - Use the latest LMIC library
- *  - Configure LMIC to use PIN_RADIO_BAND_SEL inside the library
- *  - Try putting LoRa radio to sleep without losing state of LMIC
+ *  X - Use the latest LMIC library
+ *  X - Configure LMIC to use PIN_RADIO_BAND_SEL inside the library
+ *  X - Try putting LoRa radio to sleep without losing state of LMIC
  *  - Pull in code for key setup via SerialUSB
  *  - Pull in code for downlink messages
  *
@@ -178,7 +178,7 @@ void go_to_sleep() {
 
 void on_tx_start() { digitalWrite(LED_WAN, HIGH); }
 
-void on_tx_complete() {
+void on_tx_complete(uint8_t dataLen, uint8_t dataBeg, uint8_t *frame) {
   digitalWrite(LED_WAN, LOW);
   loraTxInProgress = false;
   lora_sleep();
