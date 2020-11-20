@@ -90,23 +90,6 @@ void pinsToSleep() {
   attachInterrupt(PIN_TEST_BUTTON, onTestButtonPressed, FALLING);
 }
 
-/**
- *
- * TODO:
- *  X re-test power consumption during sleep
- *  X - evaluate sleep code from
- * https://github.com/ElectronicCats/ArduinoLowPower/commit/31fc4f41372fd70ea3777b821a073bca0146c941
- * Somehow ElectronicCats code results in 800uA sleep current vs 8uA with our
- * sleep function
- *  X - put together POC Firmware back
- *  X - Use the latest LMIC library
- *  X - Configure LMIC to use PIN_RADIO_BAND_SEL inside the library
- *  X - Try putting LoRa radio to sleep without losing state of LMIC
- *  - Pull in code for key setup via SerialUSB
- *  - Pull in code for downlink messages
- *
- * */
-
 void setup() {
   Serial.begin(115200);
 
@@ -179,6 +162,11 @@ void go_to_sleep() {
 void on_tx_start() { digitalWrite(LED_WAN, HIGH); }
 
 void on_tx_complete(uint8_t dataLen, uint8_t dataBeg, uint8_t *frame) {
+  if (dataLen > 0) {
+    uint8_t first_byte = frame[dataBeg];
+    // to do process your downlink data here
+  }
+
   digitalWrite(LED_WAN, LOW);
   loraTxInProgress = false;
   lora_sleep();
