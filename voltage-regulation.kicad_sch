@@ -1,6 +1,6 @@
-(kicad_sch (version 20200828) (generator eeschema)
+(kicad_sch (version 20201015) (generator eeschema)
 
-  (page 3 5)
+  (page 1 5)
 
   (paper "A4")
 
@@ -164,6 +164,9 @@
     (property "Manufacturer" "TDK" (id 5) (at 82.55 43.18 0)
       (effects (font (size 1.27 1.27)) hide)
     )
+    (property "LCSC" "C19666" (id 4) (at 82.55 43.18 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
   )
 
   (symbol (lib_id "Device:C") (at 93.98 43.18 0) (unit 1)
@@ -185,6 +188,9 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Manufacturer" "TDK" (id 5) (at 93.98 43.18 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "LCSC" "C19666" (id 4) (at 93.98 43.18 0)
       (effects (font (size 1.27 1.27)) hide)
     )
   )
@@ -210,6 +216,9 @@
     (property "Manufacturer" "TDK" (id 5) (at 135.89 45.72 0)
       (effects (font (size 1.27 1.27)) hide)
     )
+    (property "LCSC" "C19666" (id 4) (at 135.89 45.72 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
   )
 
   (symbol (lib_id "miceuz:NCP718") (at 119.38 43.18 0) (unit 1)
@@ -217,7 +226,7 @@
     (uuid "00000000-0000-0000-0000-00005d8f1c6a")
     (property "Reference" "U4" (id 0) (at 118.745 33.655 0))
     (property "Value" "NCP718" (id 1) (at 118.745 35.9664 0))
-    (property "Footprint" "TO_SOT_Packages_SMD:SOT-23-5" (id 2) (at 119.38 48.26 0)
+    (property "Footprint" "Package_TO_SOT_SMD:SOT-23-5" (id 2) (at 119.38 48.26 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "" (id 3) (at 119.38 48.26 0)
