@@ -3603,9 +3603,6 @@
     (property "Datasheet" "" (id 3) (at 56.515 67.31 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "PartNo" "SRV05-4" (id 5) (at 56.515 60.96 90)
-      (effects (font (size 1.27 1.27)) hide)
-    )
     (property "LCSC" "C85364" (id 4) (at 56.515 60.96 0)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -4073,6 +4070,9 @@
     (path "/00000000-0000-0000-0000-00005d84b44c/00000000-0000-0000-0000-00005daf890b"
       (reference "#PWR0137") (unit 1) (value "GND") (footprint "")
     )
+    (path "/00000000-0000-0000-0000-00005d84b44c/d77fb516-67a5-45be-85e5-24815cc7cdf2"
+      (reference "D1") (unit 1) (value "PESD3V3S2UT") (footprint "Package_TO_SOT_SMD:SOT-23")
+    )
     (path "/00000000-0000-0000-0000-00005d84b44c/00000000-0000-0000-0000-000057fc85cd"
       (reference "Q7") (unit 1) (value "NX2301P") (footprint "Package_TO_SOT_SMD:SOT-23")
     )
@@ -4087,9 +4087,6 @@
     )
     (path "/00000000-0000-0000-0000-00005d84b44c/00000000-0000-0000-0000-00005d84eabd"
       (reference "R7") (unit 1) (value "4.7k") (footprint "Resistor_SMD:R_0603_1608Metric")
-    )
-    (path "/00000000-0000-0000-0000-00005d84b44c/f9581460-bc82-41d8-80e8-75855bc7d364"
-      (reference "U3") (unit 1) (value "PESD3V3L5UV,115") (footprint "Package_TO_SOT_SMD:SOT-666")
     )
   )
 )

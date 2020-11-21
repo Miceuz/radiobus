@@ -121,13 +121,13 @@
         "min_via_annular_width": 0.049999999999999996,
         "min_via_annulus": 0.049999999999999996,
         "min_via_diameter": 0.39999999999999997,
-        "solder_mask_clearance": 0.051,
-        "solder_mask_min_width": 0.25,
+        "solder_mask_clearance": 0.0,
+        "solder_mask_min_width": 0.0,
         "solder_paste_clearance": 0.0,
         "solder_paste_margin_ratio": -0.0
       },
       "track_widths": [
-        0.25,
+        0.0,
         0.2,
         0.4,
         1.0,
@@ -135,8 +135,8 @@
       ],
       "via_dimensions": [
         {
-          "diameter": 0.85,
-          "drill": 0.4
+          "diameter": 0.0,
+          "drill": 0.0
         }
       ],
       "zones_allow_external_fillets": false,
@@ -149,6 +149,7 @@
     "equivalence_files": []
   },
   "erc": {
+    "erc_exclusions": [],
     "meta": {
       "version": 0
     },
@@ -422,7 +423,7 @@
   },
   "sheets": [
     [
-      "93f6cd68-8951-48b7-a848-69fb1833987c",
+      "aa5f79ec-edf9-4e1d-9c16-5e74cd0f9da7",
       ""
     ],
     [
