@@ -1,0 +1,230 @@
+#include "SAMLSleep.h"
+#include "pins.h"
+#include "radio.h"
+#include "wiring_private.h"
+#include <Arduino.h>
+#include <SPI.h>
+#include <Sodaq_SHT2x.h>
+#include <Wire.h>
+
+void onTestButtonPressed();
+void read_sensors();
+uint8_t setupPayload();
+
+SAMLSleep sleep;
+
+uint16_t batteryMillivolts = 0;
+
+// payload to send to TTN gateway
+static uint8_t payload[6];
+
+// Schedule TX every this many seconds (might become longer due to duty
+// cycle limitations).
+const unsigned TX_INTERVAL_S = 300;
+
+bool loraTxInProgress = false;
+
+void pinsToSleep() {
+  pinPeripheral(0, PIO_OUTPUT);
+  pinPeripheral(1, PIO_OUTPUT);
+  pinMode(0, OUTPUT);
+  pinMode(1, OUTPUT);
+  pinMode(2, OUTPUT);
+  pinMode(3, OUTPUT);
+
+  // pinMode(A0, OUTPUT);
+  pinMode(A1, OUTPUT);
+  pinMode(A2, OUTPUT);
+  pinMode(PIN_SPI1_MISO, OUTPUT);
+  pinMode(PIN_SPI1_MOSI, OUTPUT);
+  pinMode(PIN_SPI1_SCK, OUTPUT);
+  pinMode(PIN_SPI1_SS, OUTPUT);
+
+  pinMode(PIN_RADIO_CS, OUTPUT);
+  pinMode(PIN_RADIO_RST, OUTPUT);
+  pinMode(PIN_RADIO_DIO0, OUTPUT);
+  pinMode(PIN_RADIO_DIO1, OUTPUT);
+  pinMode(PIN_RADIO_DIO2, OUTPUT);
+  pinMode(PIN_RADIO_DIO3, OUTPUT);
+  pinMode(PIN_RADIO_DIO4, OUTPUT);
+  pinMode(PIN_RADIO_DIO5, OUTPUT);
+
+  pinMode(PIN_RS485_RE, OUTPUT);
+  pinMode(PIN_RS485_DE, OUTPUT);
+  pinMode(PIN_RS485_EN, OUTPUT);
+  pinMode(PIN_I2C_EN, OUTPUT);
+  pinMode(PIN_TEST_BUTTON, INPUT_PULLUP);
+  pinMode(PIN_SERIAL1_RX, OUTPUT);
+  pinMode(PIN_SERIAL1_TX, OUTPUT);
+  // pinMode(PIN_WIRE_SCL, OUTPUT);
+  // pinMode(PIN_WIRE_SDA, OUTPUT);
+
+  digitalWrite(0, LOW);
+  digitalWrite(1, LOW);
+  digitalWrite(2, LOW);
+  digitalWrite(3, LOW);
+
+  // digitalWrite(A0, LOW);
+  digitalWrite(A1, LOW);
+  digitalWrite(A2, LOW);
+  digitalWrite(PIN_SPI1_MISO, LOW);
+  digitalWrite(PIN_SPI1_MOSI, LOW);
+  digitalWrite(PIN_SPI1_SCK, LOW);
+  digitalWrite(PIN_SPI1_SS, LOW);
+
+  digitalWrite(PIN_RADIO_CS, LOW);
+  digitalWrite(PIN_RADIO_RST, HIGH);
+  digitalWrite(PIN_RADIO_DIO0, LOW);
+  digitalWrite(PIN_RADIO_DIO1, LOW);
+  digitalWrite(PIN_RADIO_DIO2, LOW);
+  digitalWrite(PIN_RADIO_DIO3, LOW);
+  digitalWrite(PIN_RADIO_DIO4, LOW);
+  digitalWrite(PIN_RADIO_DIO5, LOW);
+
+  digitalWrite(PIN_RS485_RE, HIGH);
+  digitalWrite(PIN_RS485_DE, LOW);
+  digitalWrite(PIN_RS485_EN, LOW);
+  digitalWrite(PIN_I2C_EN, HIGH);
+  digitalWrite(PIN_SERIAL1_RX, LOW);
+  digitalWrite(PIN_SERIAL1_TX, LOW);
+  // digitalWrite(PIN_WIRE_SCL, LOW);
+  // digitalWrite(PIN_WIRE_SDA, LOW);
+  attachInterrupt(PIN_TEST_BUTTON, onTestButtonPressed, FALLING);
+}
+
+void setup() {
+  Serial.begin(115200);
+
+  pinMode(PIN_RADIO_SWITCH_PWR, OUTPUT);
+  pinMode(PIN_RADIO_TXCO_PWR, OUTPUT);
+  pinMode(PIN_RADIO_BAND_SEL, OUTPUT);
+
+  digitalWrite(PIN_RADIO_SWITCH_PWR, HIGH);
+  digitalWrite(PIN_RADIO_TXCO_PWR, HIGH);
+
+  lora_init();
+  lora_save_state();
+
+  pinMode(PIN_LED_WAN, OUTPUT);
+  pinMode(PIN_LED_SENS, OUTPUT);
+  pinMode(PIN_LED_BATT, OUTPUT);
+
+  digitalWrite(PIN_LED_WAN, HIGH);
+  digitalWrite(PIN_LED_BATT, HIGH);
+  digitalWrite(PIN_LED_SENS, HIGH);
+  delay(300);
+  digitalWrite(PIN_LED_WAN, LOW);
+  digitalWrite(PIN_LED_BATT, LOW);
+  digitalWrite(PIN_LED_SENS, LOW);
+
+  pinsToSleep();
+
+  read_sensors();
+}
+
+int16_t temperature;
+int16_t humidity;
+
+void read_sensors() {
+  digitalWrite(LED_SENSOR, HIGH);
+  i2cEnable();
+  rs485Enable();
+
+  Wire.begin();
+  Wire.setClock(10000);
+
+  delay(30);
+
+  SHT2x.GetTemperature(); // first reading is schonky
+  float t = SHT2x.GetTemperature();
+  temperature = t * 10;
+
+  float rh = SHT2x.GetHumidity();
+  humidity = rh * 10;
+
+  // initADC();
+  // pinPeripheral(A0, PIO_ANALOG_ADC);
+  batteryMillivolts = analogRead(A0) * 2 * 3300 / 1024;
+
+  //    Serial.print("Temperature: "); Serial.print(temperature);
+  //    Serial.println(" *C");
+  //    Serial.print("Humidity ");
+  //    Serial.println(humidity);
+  //    Serial.print("Battery voltage: ");
+  //    Serial.println(batteryMillivolts);
+
+  i2cDisable();
+  rs485Disable();
+  rs485Sleep();
+  digitalWrite(LED_SENSOR, LOW);
+}
+
+uint8_t setupPayload() {
+  payload[0] = batteryMillivolts & 0x00FF;
+  payload[1] = (batteryMillivolts >> 8) & 0x00FF;
+  payload[2] = humidity & 0x00FF;
+  payload[3] = (humidity >> 8) & 0x00FF;
+  payload[4] = temperature & 0x00FF;
+  payload[5] = (temperature >> 8) & 0x00FF;
+
+  return 6;
+}
+
+void lora_sleep() {
+  lora_save_state();
+  LMIC_shutdown();
+
+  digitalWrite(PIN_RADIO_SWITCH_PWR, LOW);
+  digitalWrite(PIN_RADIO_TXCO_PWR, LOW);
+  digitalWrite(PIN_RADIO_BAND_SEL, LOW);
+}
+
+void lora_wakeup() {
+  digitalWrite(PIN_RADIO_SWITCH_PWR, HIGH);
+  digitalWrite(PIN_RADIO_TXCO_PWR, HIGH);
+
+  lora_init();
+  lora_restore_state();
+  lora_adjust_time();
+}
+
+void go_to_sleep() {
+  pinsToSleep();
+  sleep.sleep(TX_INTERVAL_S, SAMLSleep::sleep_mode_e::SLEEP_MODE_STANDBY);
+  // delay(TX_INTERVAL_S);
+}
+
+void on_tx_start() { digitalWrite(LED_WAN, HIGH); }
+
+void on_tx_complete(uint8_t dataLen, uint8_t dataBeg, uint8_t *frame) {
+  if (dataLen > 0) {
+    // uint8_t first_byte = frame[dataBeg];
+    // to do process your downlink data here
+  }
+
+  digitalWrite(LED_WAN, LOW);
+  loraTxInProgress = false;
+  lora_sleep();
+}
+
+void lora_send_payload() {
+  lora_wakeup();
+  uint8_t payload_length = setupPayload();
+  lora_send(payload, payload_length);
+  loraTxInProgress = true;
+  while (loraTxInProgress) {
+    os_runloop_once();
+  }
+}
+
+void loop() {
+  read_sensors();
+  lora_send_payload();
+  go_to_sleep();
+}
+
+void RTC_Handler() { RTC->MODE0.INTFLAG.reg = RTC_MODE0_INTFLAG_MASK; }
+
+void onTestButtonPressed() {
+  // just wakeup
+}
