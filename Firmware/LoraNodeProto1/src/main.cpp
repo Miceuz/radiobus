@@ -13,9 +13,6 @@ SAMLSleep sleep;
 
 uint16_t batteryMillivolts = 0;
 
-// payload to send to TTN gateway
-static uint8_t payload[5];
-
 // Schedule TX every this many seconds (might become longer due to duty
 // cycle limitations).
 const unsigned TX_INTERVAL_S = 5;
@@ -118,10 +115,14 @@ void setup() {
   read_sensors();
 }
 
+
+/*****************************************************************
+  Add your sensor code in this function
+******************************************************************/
 void read_sensors() {
   digitalWrite(PIN_LED_SENS, HIGH);
   //    i2cEnable();
-  rs485Enable();
+  rs485Enable(); //enabling rs485 also enables resistive divider for battery measurement
   delay(30); // allow voltage to stabilize
 
   batteryMillivolts = analogRead(A0) * 3 * 3300 / 1024;
@@ -131,10 +132,17 @@ void read_sensors() {
   digitalWrite(PIN_LED_SENS, LOW);
 }
 
+
+/*********************************************************************
+  Adjust PAYLOAD_LENGTH according to how many bytes you want to send 
+**********************************************************************/
+#define PAYLOAD_LENGTH 5
+// payload to send to TTN gateway
+static uint8_t payload[PAYLOAD_LENGTH];
 uint8_t setupPayload() {
   payload[0] = batteryMillivolts & 0x00FF;
   payload[1] = (batteryMillivolts >> 8) & 0x00FF;
-  return 2;
+  return 2; //return the length of the payload
 }
 
 void lora_sleep() {
