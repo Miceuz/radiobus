@@ -1,5 +1,7 @@
 # Radiobus - RS485, I2C, SPI, Serial bridge to LoRaWAN network
 
+[![](https://d2ss6ovg47m0r5.cloudfront.net/badges/tindie-smalls.png)](https://www.tindie.com/products/19218/)
+
 This is a low power high reliability board that is specifically designed to easily hook up sensors and actuators to LoRaWAN network.
 ![Radiobus - top](pics/top.jpg)
 ![Radiobus - bottom](pics/bot.jpg)
