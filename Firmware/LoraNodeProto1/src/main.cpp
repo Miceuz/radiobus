@@ -90,6 +90,8 @@ void pinsToSleep() {
 void setup() {
   Serial.begin(115200);
 
+  pinsToSleep();
+
   pinMode(PIN_RADIO_SWITCH_PWR, OUTPUT);
   pinMode(PIN_RADIO_TXCO_PWR, OUTPUT);
   pinMode(PIN_RADIO_BAND_SEL, OUTPUT);
@@ -98,7 +100,6 @@ void setup() {
   digitalWrite(PIN_RADIO_TXCO_PWR, HIGH);
 
   lora_init();
-  lora_save_state();
 
   pinMode(PIN_LED_WAN, OUTPUT);
   pinMode(PIN_LED_SENS, OUTPUT);
@@ -115,26 +116,29 @@ void setup() {
   read_sensors();
 }
 
-
 /*****************************************************************
   Add your sensor code in this function
 ******************************************************************/
 void read_sensors() {
   digitalWrite(PIN_LED_SENS, HIGH);
-  //    i2cEnable();
-  rs485Enable(); //enabling rs485 also enables resistive divider for battery measurement
-  delay(30); // allow voltage to stabilize
+  pinMode(A0, INPUT);
+  i2cEnable();
+  rs485Enable(); // enabling rs485 also enables resistive divider for battery
+                 // measurement
+  delay(50);     // allow voltage to stabilize
 
-  batteryMillivolts = analogRead(A0) * 3 * 3300 / 1024;
+  analogRead(A0);
+  analogRead(A0);
+  analogRead(A0);
 
-  //    i2cDisable();
+  batteryMillivolts = analogRead(A0) * 2 * 3300 / 1024;
+  i2cDisable();
   rs485Disable();
   digitalWrite(PIN_LED_SENS, LOW);
 }
 
-
 /*********************************************************************
-  Adjust PAYLOAD_LENGTH according to how many bytes you want to send 
+  Adjust PAYLOAD_LENGTH according to how many bytes you want to send
 **********************************************************************/
 #define PAYLOAD_LENGTH 5
 // payload to send to TTN gateway
@@ -142,7 +146,7 @@ static uint8_t payload[PAYLOAD_LENGTH];
 uint8_t setupPayload() {
   payload[0] = batteryMillivolts & 0x00FF;
   payload[1] = (batteryMillivolts >> 8) & 0x00FF;
-  return 2; //return the length of the payload
+  return 2; // return the length of the payload
 }
 
 void lora_sleep() {
@@ -176,9 +180,8 @@ void on_tx_complete(uint8_t dataLen, uint8_t dataBeg, uint8_t *frame) {
     // to do process your downlink data here
   }
 
-  digitalWrite(LED_WAN, LOW);
   loraTxInProgress = false;
-  lora_sleep();
+  digitalWrite(LED_WAN, LOW);
 }
 
 void lora_send_payload() {
@@ -186,9 +189,11 @@ void lora_send_payload() {
   uint8_t payload_length = setupPayload();
   lora_send(payload, payload_length);
   loraTxInProgress = true;
-  while (loraTxInProgress) {
+  uint32_t ts = millis();
+  while (loraTxInProgress || is_lora_tx_path_busy()) {
     os_runloop_once();
   }
+  lora_sleep();
 }
 
 void loop() {
