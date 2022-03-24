@@ -11,5 +11,6 @@ void lora_adjust_time();
 
 void lora_save_state();
 void lora_restore_state();
+bool is_lora_tx_path_busy();
 
 #endif
