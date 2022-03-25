@@ -3,6 +3,15 @@
 #include "pins.h"
 #include <Arduino.h>
 
+//--- DEVEUI is used in both OTA and ABP activation modes
+
+// This should also be in little endian format, see above.
+static const u1_t PROGMEM DEVEUI[8] = {0x70, 0xB3, 0xD5, 0x7E,
+                                       0xD0, 0x04, 0xE6, 0xF1};
+void os_getDevEui(u1_t *buf) { memcpy_P(buf, DEVEUI, 8); }
+
+//--- APPEUI and APPKEY are used in OTA activation mode only
+
 // This EUI must be in little-endian format, so least-significant-byte
 // first. When copying an EUI from ttnctl output, this means to reverse
 // the bytes. For TTN issued EUIs the last bytes should be 0xD5, 0xB3,
@@ -10,11 +19,6 @@
 static const u1_t PROGMEM APPEUI[8] = {0x67, 0x29, 0x02, 0xD0,
                                        0x7E, 0xD5, 0xB3, 0x70};
 void os_getArtEui(u1_t *buf) { memcpy_P(buf, APPEUI, 8); }
-
-// This should also be in little endian format, see above.
-static const u1_t PROGMEM DEVEUI[8] = {0x98, 0xD0, 0x0B, 0x61,
-                                       0xAD, 0x38, 0x5A, 0x00};
-void os_getDevEui(u1_t *buf) { memcpy_P(buf, DEVEUI, 8); }
 
 // This key should be in big endian format (or, since it is not really a
 // number but a block of memory, endianness does not really apply). In
@@ -24,24 +28,26 @@ static const u1_t PROGMEM APPKEY[16] = {0xB7, 0xF1, 0x29, 0x67, 0xA8, 0x49,
                                         0xCC, 0x40, 0xD1, 0xFA};
 void os_getDevKey(u1_t *buf) { memcpy_P(buf, APPKEY, 16); }
 
-// LoRaWAN AppSKey, application session key
-// This should also be in big-endian (aka msb).
-static const u1_t PROGMEM APPSKEY[16] = {0x4F, 0x8D, 0xDE, 0x82, 0x47, 0x9F,
-                                         0x43, 0xAD, 0xD1, 0x73, 0x8A, 0x02,
-                                         0x21, 0x88, 0xDD, 0x69};
+//--- DEVADDR, NWKSKEY, APPSKEY are used ABP activation mode only
 
 // LoRaWAN end-device address (DevAddr)
 // See http://thethingsnetwork.org/wiki/AddressSpace
 // The library converts the address to network byte order as needed, so this
 // should be in big-endian (aka msb) too.
 static const u4_t DEVADDR =
-    0x260110F0; // <-- Change this address for every node!
+    0x260BB97E; // <-- Change this address for every node!
+
+// LoRaWAN AppSKey, application session key
+// This should also be in big-endian (aka msb).
+static const u1_t PROGMEM APPSKEY[16] = {0x84, 0x26, 0xBF, 0xF6, 0x5F, 0x7D,
+                                         0x17, 0x58, 0x32, 0x92, 0x1B, 0xD6,
+                                         0x56, 0x11, 0x89, 0x0F};
 
 // LoRaWAN NwkSKey, network session key
 // This should be in big-endian (aka msb).
-static const u1_t NWKSKEY[16] = {0x80, 0x42, 0xD6, 0x39, 0xB3, 0xDC,
-                                 0x1B, 0x03, 0x9D, 0x67, 0xA5, 0x98,
-                                 0x94, 0xC1, 0x49, 0x6F};
+static const u1_t NWKSKEY[16] = {0xEA, 0xF7, 0xE8, 0xEB, 0x1A, 0x24,
+                                 0x83, 0x90, 0x81, 0x31, 0x95, 0x60,
+                                 0xF8, 0xD9, 0xE8, 0x39};
 
 const lmic_pinmap lmic_pins = {
     .nss = RFM_NSS,
@@ -75,8 +81,8 @@ void lora_init() {
   // Reset the MAC state. Session and pending data transfers will be discarded.
   LMIC_reset();
 
-  //    LMIC_setClockError(MAX_CLOCK_ERROR * 1 / 100);
-
+  // This example uses ABP activation mode, thus this initialization applies to
+  // ABP. Look into LMIC library examples for how to set up OTA mode.
   LMIC_setSession(0x13, DEVADDR, (xref2u1_t)NWKSKEY, (xref2u1_t)APPSKEY);
 
   // Set up the channels used by the Things Network, which corresponds
