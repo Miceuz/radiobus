@@ -6,8 +6,8 @@
 //--- DEVEUI is used in both OTA and ABP activation modes
 
 // This should also be in little endian format, see above.
-static const u1_t PROGMEM DEVEUI[8] = {0x70, 0xB3, 0xD5, 0x7E,
-                                       0xD0, 0x04, 0xE6, 0xF1};
+static const u1_t PROGMEM DEVEUI[8] = {0xF1, 0xE6, 0x04, 0xD0,
+                                       0x7E, 0xD5, 0xB3, 0x70};
 void os_getDevEui(u1_t *buf) { memcpy_P(buf, DEVEUI, 8); }
 
 //--- APPEUI and APPKEY are used in OTA activation mode only
@@ -118,10 +118,10 @@ void lora_init() {
   // Disable adaptive data rate
   LMIC_setAdrMode(0);
   // TTN uses SF9 for its RX2 window.
-  LMIC.dn2Dr = DR_SF9;
+  LMIC.dn2Dr = DR_SF12;
 
   // Set data rate and transmit power for uplink
-  LMIC_setDrTxpow(DR_SF7, 27);
+  LMIC_setDrTxpow(DR_SF12, 27);
 
   // wait until LMIC is done initializing
   while (os_queryTimeCriticalJobs(1000)) {
