@@ -76,7 +76,7 @@ void pinsToSleep() {
   digitalWrite(PIN_RADIO_DIO4, LOW);
   digitalWrite(PIN_RADIO_DIO5, LOW);
 
-  digitalWrite(PIN_RS485_RE, LOW);
+  digitalWrite(PIN_RS485_RE, HIGH);
   digitalWrite(PIN_RS485_DE, LOW);
   digitalWrite(PIN_RS485_EN, LOW);
   digitalWrite(PIN_I2C_EN, HIGH);
