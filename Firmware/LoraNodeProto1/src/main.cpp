@@ -169,10 +169,17 @@ void lora_wakeup() {
 
 void go_to_sleep() {
   pinsToSleep();
-  sleep.sleep(TX_INTERVAL_S, SAMLSleep::sleep_mode_e::SLEEP_MODE_STANDBY);
+  sleep.sleep(TX_INTERVAL_S, SAMLSleep::unit_e::SECOND,
+              SAMLSleep::sleep_mode_e::SLEEP_MODE_STANDBY);
+  // sleep.sleep(TX_INTERVAL_S * 1000 * 1000 / 30,
+  // SAMLSleep::unit_e::MICROSECOND,
+  //             SAMLSleep::sleep_mode_e::SLEEP_MODE_STANDBY);
+  // delay(TX_INTERVAL_S * 1000);
 }
 
-void on_tx_start() { digitalWrite(LED_WAN, HIGH); }
+void on_tx_start() {
+  // digitalWrite(LED_WAN, HIGH);
+}
 
 void on_tx_complete(uint8_t dataLen, uint8_t dataBeg, uint8_t *frame) {
   if (dataLen > 0) {
@@ -189,9 +196,34 @@ void lora_send_payload() {
   uint8_t payload_length = setupPayload();
   lora_send(payload, payload_length);
   loraTxInProgress = true;
+
+  Serial.println(EIC->ASYNCH.reg, BIN);
+
   uint32_t ts = millis();
   while (loraTxInProgress || is_lora_tx_path_busy()) {
+    hal_sleep_reset();
     os_runloop_once();
+    if (hal_can_sleep()) {
+      ostime_t next_job_time = os_getNextJobDeadline();
+      if (next_job_time > 0) {
+        ostime_t ticks_to_job = next_job_time - os_getTime();
+        uint32_t ms_to_job = ticks_to_job * US_PER_OSTICK / 1000;
+        if (ms_to_job >= 1) {
+          digitalWrite(PIN_RADIO_TXCO_PWR, LOW);
+          digitalWrite(PIN_RADIO_BAND_SEL, LOW);
+          digitalWrite(PIN_RADIO_SWITCH_PWR, LOW);
+
+          sleep.sleep(ms_to_job * 1000 / 30, SAMLSleep::unit_e::MICROSECOND,
+                      SAMLSleep::sleep_mode_e::SLEEP_MODE_STANDBY);
+          digitalWrite(PIN_RADIO_TXCO_PWR, HIGH);
+          digitalWrite(PIN_RADIO_SWITCH_PWR, HIGH);
+
+          fast_forward_time(ms_to_job);
+        }
+      } else {
+        // TODO
+      }
+    }
   }
   lora_sleep();
 }
