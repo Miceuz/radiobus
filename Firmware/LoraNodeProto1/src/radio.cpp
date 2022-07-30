@@ -53,7 +53,7 @@ const lmic_pinmap lmic_pins = {
     .nss = RFM_NSS,
     .rxtx = PIN_RADIO_BAND_SEL,
     .rst = RFM_RST,
-    .dio = {RFM_IRQ, RFM_DIO01, LMIC_UNUSED_PIN},
+    .dio = {RFM_IRQ, RFM_DIO01, RFM_DIO02},
     .rxtx_rx_active = 1,
     .rssi_cal = 0,
     .spi_freq = 8000000,
@@ -124,7 +124,7 @@ void lora_init() {
   LMIC_setDrTxpow(DR_SF12, 27);
 
   // wait until LMIC is done initializing
-  while (os_queryTimeCriticalJobs(1000)) {
+  while (!hal_can_sleep()) {
     os_runloop_once();
   }
 }

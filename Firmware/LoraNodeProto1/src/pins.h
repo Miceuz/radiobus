@@ -12,6 +12,7 @@
 //???
 #define RFM_IRQ PIN_RADIO_DIO0
 #define RFM_DIO01 PIN_RADIO_DIO1
+#define RFM_DIO02 PIN_RADIO_DIO2
 
 #define i2cEnable() digitalWrite(I2C_EN, LOW)
 #define i2cDisable() digitalWrite(I2C_EN, HIGH)
