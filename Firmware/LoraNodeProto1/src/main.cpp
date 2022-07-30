@@ -172,7 +172,7 @@ void go_to_sleep() {
   sleep.sleep(TX_INTERVAL_S, SAMLSleep::unit_e::SECOND,
               SAMLSleep::sleep_mode_e::SLEEP_MODE_STANDBY);
   // sleep.sleep(TX_INTERVAL_S * 1000 * 1000 / 30,
-  // SAMLSleep::unit_e::MICROSECOND,
+  // SAMLSleep::unit_e::T30US,
   //             SAMLSleep::sleep_mode_e::SLEEP_MODE_STANDBY);
   // delay(TX_INTERVAL_S * 1000);
 }
@@ -213,7 +213,7 @@ void lora_send_payload() {
           digitalWrite(PIN_RADIO_BAND_SEL, LOW);
           digitalWrite(PIN_RADIO_SWITCH_PWR, LOW);
 
-          sleep.sleep(ms_to_job * 1000 / 30, SAMLSleep::unit_e::MICROSECOND,
+          sleep.sleep(ms_to_job * 1000 / 30, SAMLSleep::unit_e::T30US,
                       SAMLSleep::sleep_mode_e::SLEEP_MODE_STANDBY);
           digitalWrite(PIN_RADIO_TXCO_PWR, HIGH);
           digitalWrite(PIN_RADIO_SWITCH_PWR, HIGH);

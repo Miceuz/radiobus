@@ -11,7 +11,7 @@ class SAMLSleep {
 
 public:
   SAMLSleep(){};
-  enum class unit_e { SECOND, MICROSECOND };
+  enum class unit_e { SECOND, T30US };
   enum class sleep_mode_e {
     SLEEP_MODE_IDLE = PM_SLEEPCFG_SLEEPMODE_IDLE,
     SLEEP_MODE_STANDBY = PM_SLEEPCFG_SLEEPMODE_STANDBY,
@@ -95,7 +95,7 @@ core but not used. */
 
     if (unit_e::SECOND == units) {
       rtc_seconds.interruptAfter(ticks);
-    } else if (unit_e::MICROSECOND == units) {
+    } else if (unit_e::T30US == units) {
       rtc_micros.interruptAfter(ticks);
     }
     setMode(sleep_mode);
