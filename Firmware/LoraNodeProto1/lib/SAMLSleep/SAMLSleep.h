@@ -2,25 +2,22 @@
 #define _SAML_SLEEP_H
 #include <Arduino.h>
 
+#include "SAMLMicrosecondCounterRTC.h"
 #include "SAMLSecondCounterRTC.h"
 #include <sam.h>
 class SAMLSleep {
-  SAMLSecondCounterRTC rtc;
+  SAMLSecondCounterRTC rtc_seconds;
+  SAMLMicrosecondCounterRTC rtc_micros;
 
 public:
   SAMLSleep(){};
-
+  enum class unit_e { SECOND, MICROSECOND };
   enum class sleep_mode_e {
     SLEEP_MODE_IDLE = PM_SLEEPCFG_SLEEPMODE_IDLE,
     SLEEP_MODE_STANDBY = PM_SLEEPCFG_SLEEPMODE_STANDBY,
     SLEEP_MODE_BACKUP = PM_SLEEPCFG_SLEEPMODE_BACKUP,
     SLEEP_MODE_OFF = PM_SLEEPCFG_SLEEPMODE_OFF,
   };
-
-  void begin() {
-    rtc.begin();
-    started = 1;
-  }
 
   // Used for the CPU/APB clocks. Runs at 48MHz.
 #define GENERIC_CLOCK_GENERATOR_MAIN (0u)
@@ -32,11 +29,8 @@ public:
 core but not used. */
 #define GENERIC_CLOCK_GENERATOR_OSC_HS (3u)
 
-  // Enter in sleep in sleep_mode and wakeup after seconds
-  void sleep(uint32_t seconds, sleep_mode_e sleep_mode) {
-    if (0 == started) {
-      begin();
-    }
+  // Enter in sleep in sleep_mode and wakeup after ticks*units
+  void sleep(uint32_t ticks, unit_e units, sleep_mode_e sleep_mode) {
 
     sleepAdc();
 
@@ -49,7 +43,9 @@ core but not used. */
     TRNG->CTRLA.reg = 0;
 
     // Disable USB and set USB pins as output LOW
+
     USB->DEVICE.CTRLA.bit.ENABLE = 0;
+
     // PORT->Group[0].DIRSET.reg = (uint32_t)(1 << PIN_PA24G_USB_DM);
     // PORT->Group[0].OUTCLR.reg = (uint32_t)(1 << PIN_PA24G_USB_DM);
     // PORT->Group[0].DIRSET.reg = (uint32_t)(1 << PIN_PA25G_USB_DP);
@@ -97,10 +93,13 @@ core but not used. */
     // Enable Low Power Efficiency, saves ~200nA
     SUPC->VREG.bit.LPEFF = 1;
 
-    rtc.interruptAfter(seconds);
+    if (unit_e::SECOND == units) {
+      rtc_seconds.interruptAfter(ticks);
+    } else if (unit_e::MICROSECOND == units) {
+      rtc_micros.interruptAfter(ticks);
+    }
     setMode(sleep_mode);
     sleep();
-
     SUPC->VREG.bit.LPEFF = 0;
 
     // switch to performance level 2
