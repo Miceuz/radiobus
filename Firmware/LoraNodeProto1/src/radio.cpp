@@ -94,6 +94,7 @@ void lora_init() {
   // Setting up channels should happen after LMIC_setSession, as that
   // configures the minimal channel set.
 
+#if CFG_LMIC_EU_like
   LMIC_setupChannel(0, 868100000, DR_RANGE_MAP(DR_SF12, DR_SF7),
                     BAND_CENTI); // g-band
   LMIC_setupChannel(1, 868300000, DR_RANGE_MAP(DR_SF12, DR_SF7B),
@@ -110,18 +111,27 @@ void lora_init() {
                     BAND_CENTI); // g-band
   LMIC_setupChannel(7, 867900000, DR_RANGE_MAP(DR_SF12, DR_SF7),
                     BAND_CENTI); // g-band
-  LMIC_setupChannel(8, 868800000, DR_RANGE_MAP(DR_FSK, DR_FSK),
-                    BAND_MILLI); // g2-band
+#else
+#if CFG_LMIC_US_like
+  LMIC_selectSubBand(1);
+#endif
+#endif
 
   // Disable link check validation
   LMIC_setLinkCheckMode(0);
   // Disable adaptive data rate
   LMIC_setAdrMode(0);
   // TTN uses SF9 for its RX2 window.
-  LMIC.dn2Dr = DR_SF12;
-
+#if CFG_LMIC_EU_like
+  LMIC.dn2Dr = DR_SF9;
+#endif
   // Set data rate and transmit power for uplink
-  LMIC_setDrTxpow(DR_SF12, 27);
+#if CFG_LMIC_EU_like
+  LMIC_setDrTxpow(DR_SF12, 14);
+#endif
+#if CFG_LMIC_US_like
+  LMIC_setDrTxpow(DR_SF10, 14);
+#endif
 
   // wait until LMIC is done initializing
   while (!hal_can_sleep()) {
@@ -140,9 +150,11 @@ void lora_send(uint8_t *payload, uint8_t size) {
 }
 
 void lora_adjust_time() {
+#if CFG_LMIC_EU_like
   LMIC.bands[BAND_MILLI].avail = os_getTime();
   LMIC.bands[BAND_CENTI].avail = os_getTime();
   LMIC.bands[BAND_DECI].avail = os_getTime();
+#endif
 }
 
 void onEvent(ev_t ev) {
