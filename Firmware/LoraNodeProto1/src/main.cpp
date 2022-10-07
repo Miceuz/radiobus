@@ -125,7 +125,7 @@ void read_sensors() {
   i2cEnable();
   rs485Enable(); // enabling rs485 also enables resistive divider for battery
                  // measurement
-  delay(50);     // allow voltage to stabilize
+  delay(150);    // allow voltage to stabilize
 
   analogRead(A0);
   analogRead(A0);
