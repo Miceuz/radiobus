@@ -1,3 +1,3 @@
 (sym_lib_table
-  (lib (name "miceuz")(type "Legacy")(uri "/home/miceuz/Xaltura/miceuz-lib/miceuz.lib")(options "")(descr ""))
+  (lib (name "miceuz")(type "KiCad")(uri "/home/miceuz/Xaltura/miceuz-lib/miceuz.kicad_sym")(options "")(descr ""))
 )
